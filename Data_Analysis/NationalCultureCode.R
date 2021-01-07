@@ -42,6 +42,24 @@ outcome2Measures = c("flexOutcome2", "speedOutcome2", "outcome2")
 
 allMeasures = c("sensing2", "proactive2", "agility2", "flexOutcome", "speedOutcome", "outcome")
 
+
+#Define a function to return a star or stars according to their signifcance
+sigStar <- function(tval)  {
+  
+  if (abs(tval) <= abs(qt(.05, df = 30)))  # critical t = 1.697261
+    " "
+  else if (abs(tval) <= abs(qt(.025, df = 30))) # critical t = 2.042272
+    "+"
+  else if ((abs(tval) <= abs(qt(.005, df = 30)))) # critical t = 2.749996
+    "*"
+  else if ((abs(tval) <= abs(qt(.0005, df = 30)))) # critical t = 3.645959
+    "**"
+  else 
+    "***"
+}
+
+
+
 #The beginning of the multilevel analysis block. 
 {
 #1. null models
@@ -51,7 +69,7 @@ iterate <- c("overall", "domestic", "multinational")
 
 #empty the container when necessary
 rm(nullModel_estimates)
-network = ""
+#network = ""
 for (dv in allMeasures) {
   
   for (network in iterate) {
@@ -92,6 +110,7 @@ for (dv in allMeasures) {
       intercept = COEF["(Intercept)", "Estimate"],
       intercept_se = COEF["(Intercept)", "Std. Error"],
       intercept_t = COEF["(Intercept)", "t value"],
+      intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
       
       var_firm = VAR[2, 1],
       var_country = VAR[1,1],
@@ -121,8 +140,12 @@ for (dv in allMeasures) {
   }
 }
 
-print(nullModel_estimates)
-write.csv(nullModel_estimates, paste(filepath, "nullModel.csv", sep=""), row.names = TRUE)
+nullModels <- t(nullModel_estimates)
+colnames(nullModels) <- nullModel_estimates[,1]
+write.csv(nullModels, paste(filepath, "estimates.null.csv", sep=""), row.names = TRUE)
+
+
+
 
 #======================== Manufacturing network and Agility Level ========================== 
 
@@ -159,18 +182,22 @@ for (dv in agility2Measures) {
                           intercept = COEF["(Intercept)", "Estimate"],
                           intercept_se = COEF["(Intercept)", "Std. Error"],
                           intercept_t = COEF["(Intercept)", "t value"],
+                          intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
                           
                           firmsizestd = COEF["firmsizestd", "Estimate"], 
                           firmsizestd_se = COEF["firmsizestd", "Std. Error"],
                           firmsizestd_t = COEF["firmsizestd", "t value"],
+                          firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
 
                           gmci2016c = COEF["gmci2016c", "Estimate"],
                           gmci2016c_se = COEF["gmci2016c", "Std. Error"],
                           gmci2016c_t = COEF["gmci2016c", "t value"],
+                          gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
                           
                           firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
                           firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
                           firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+                          firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
                           
                           var_firm = VAR[2, 1],
                           var_country = VAR[1,1],
@@ -194,8 +221,11 @@ for (dv in agility2Measures) {
   counter <- counter+1
 }
   
-print(controlVar_estimates)
-write.csv(controlVar_estimates, paste(filepath, "a.controlVar_estimates.csv", sep=""), row.names = TRUE)
+
+t.a.controlVar <- t(controlVar_estimates)
+colnames(t.a.controlVar) <- controlVar_estimates[,1]
+write.csv(t.a.controlVar, paste(filepath, "estimates.a.controlVar.csv", sep=""), row.names = TRUE)
+
 
 
 #2. Random Intercept Model
@@ -237,22 +267,27 @@ for (varRI in glo_v) {
     intercept = COEF["(Intercept)", "Estimate"],
     intercept_se = COEF["(Intercept)", "Std. Error"],
     intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
     
     firmsizestd = COEF["firmsizestd", "Estimate"], 
     firmsizestd_se = COEF["firmsizestd", "Std. Error"],
     firmsizestd_t = COEF["firmsizestd", "t value"],
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
     
     network2xcj = COEF["network2xcj", "Estimate"],
     network2xcj_se = COEF["network2xcj", "Std. Error"],
     network2xcj_t = COEF["network2xcj", "t value"],
+    network2xcj_sig = sigStar(COEF["network2xcj", "t value"]),
     
     gmci2016c = COEF["gmci2016c", "Estimate"],
     gmci2016c_se = COEF["gmci2016c", "Std. Error"],
     gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
     
     firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
     firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
     firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
     
     var_firm = VAR[4, "vcov"],
     var_intercept = VAR[1,"vcov"],
@@ -279,8 +314,11 @@ for (varRI in glo_v) {
   counter <- counter+1
 }
 
-print(intercept_estimates)
-write.csv(intercept_estimates, paste(filepath, "a.intercept_estimates.csv", sep=""), row.names = TRUE)
+t.a.RI <- t(intercept_estimates)
+colnames(t.a.RI) <- intercept_estimates[,1]
+write.csv(t.a.RI, paste(filepath, "estimates.a.RI.csv", sep=""), row.names = TRUE)
+
+
 
 
 #3. Random Intercept and Random Slope Model 
@@ -326,26 +364,32 @@ for (varRIRS in glo_v) {
     intercept = COEF["(Intercept)", "Estimate"],
     intercept_se = COEF["(Intercept)", "Std. Error"],
     intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
     
     culc = COEF[culc, "Estimate"],
     culc_se = COEF[culc, "Std. Error"],
     culc_t = COEF[culc, "t value"],
+    culc_sig = sigStar(COEF[culc, "t value"]),
     
     firmsizestd = COEF["firmsizestd", "Estimate"], 
     firmsizestd_se = COEF["firmsizestd", "Std. Error"],
     firmsizestd_t = COEF["firmsizestd", "t value"],
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
     
     network2xcj = COEF["network2xcj", "Estimate"],
     network2xcj_se = COEF["network2xcj", "Std. Error"],
     network2xcj_t = COEF["network2xcj", "t value"],
+    network2xcj_sig = sigStar(COEF["network2xcj", "t value"]),
     
     gmci2016c = COEF["gmci2016c", "Estimate"],
     gmci2016c_se = COEF["gmci2016c", "Std. Error"],
     gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
     
     firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
     firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
     firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
     
     var_firm = VAR[4, "vcov"],
     var_intercept = VAR[1,"vcov"],
@@ -372,8 +416,9 @@ for (varRIRS in glo_v) {
   counter <- counter + 1
 }
 
-print(slope_estimates)
-write.csv(slope_estimates, paste(filepath, "a.slope_estimates.csv", sep=""), row.names = TRUE)
+t.a.RIRS <- t(slope_estimates)
+colnames(t.a.RIRS) <- slope_estimates[,1]
+write.csv(t.a.RIRS, paste(filepath, "estimates.a.RIRS.csv", sep=""), row.names = TRUE)
 
 
 #4. Cross Level Model 
@@ -421,30 +466,38 @@ for (varCross in glo_v) {
     intercept = COEF["(Intercept)", "Estimate"],
     intercept_se = COEF["(Intercept)", "Std. Error"],
     intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
     
     culc = COEF[culc, "Estimate"],
     culc_se = COEF[culc, "Std. Error"],
     culc_t = COEF[culc, "t value"],
+    culc_sig = sigStar(COEF[culc, "t value"]),
     
     firmsizestd = COEF["firmsizestd", "Estimate"], 
     firmsizestd_se = COEF["firmsizestd", "Std. Error"],
     firmsizestd_t = COEF["firmsizestd", "t value"],
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
     
     network2xcj = COEF["network2xcj", "Estimate"],
     network2xcj_se = COEF["network2xcj", "Std. Error"],
     network2xcj_t = COEF["network2xcj", "t value"],
+    network2xcj_sig = sigStar(COEF["network2xcj", "t value"]),
     
     gmci2016c = COEF["gmci2016c", "Estimate"],
     gmci2016c_se = COEF["gmci2016c", "Std. Error"],
     gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
     
     firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
     firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
     firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
     
     culc_network_int = COEF[7, "Estimate"],
     culc_network_int_se = COEF[7, "Std. Error"],
     culc_network_int_t = COEF[7, "t value"],
+    culc_network_int_sig = sigStar(COEF[7, "t value"]),
+    
     
     var_firm = VAR[4, "vcov"],
     var_intercept = VAR[1,"vcov"],
@@ -471,8 +524,9 @@ for (varCross in glo_v) {
   counter <- counter + 1
 }
 
-print(cross_estimates)
-write.csv(cross_estimates, paste(filepath, "a.cross_estimates.csv", sep=""), row.names = TRUE)
+t.a.cross <- t(cross_estimates)
+colnames(t.a.cross) <- cross_estimates[,1]
+write.csv(t.a.cross, paste(filepath, "estimates.a.cross.csv", sep=""), row.names = TRUE)
 
 
 #======================== Agility and Culture - Outcome Model ========================== 
@@ -512,18 +566,22 @@ for (dv in outcomeMeasures) {
     intercept = COEF["(Intercept)", "Estimate"],
     intercept_se = COEF["(Intercept)", "Std. Error"],
     intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
     
     firmsizestd = COEF["firmsizestd", "Estimate"], 
     firmsizestd_se = COEF["firmsizestd", "Std. Error"],
     firmsizestd_t = COEF["firmsizestd", "t value"],
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
     
     gmci2016c = COEF["gmci2016c", "Estimate"],
     gmci2016c_se = COEF["gmci2016c", "Std. Error"],
     gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
     
     firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
     firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
     firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
     
     var_firm = VAR[2, 1],
     var_country = VAR[1,1],
@@ -547,8 +605,11 @@ for (dv in outcomeMeasures) {
   counter <- counter+1
 }
 
-print(o.controlVar_estimates)
-write.csv(o.controlVar_estimates, paste(filepath, "o.controlVar_estimates.csv", sep=""), row.names = TRUE)
+
+t.o.controlVar <- t(o.controlVar_estimates)
+colnames(t.o.controlVar) <- o.controlVar_estimates[,1]
+write.csv(t.o.controlVar, paste(filepath, "estimates.o.controlVar.csv", sep=""), row.names = TRUE)
+
 
 
 #2. outcome Random Intercept Model
@@ -590,30 +651,37 @@ for (varRI in glo_v) {
     intercept = COEF["(Intercept)", "Estimate"],
     intercept_se = COEF["(Intercept)", "Std. Error"],
     intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
     
     agility2cj = COEF["agility2cj", "Estimate"],
     agility2cj_se = COEF["agility2cj", "Std. Error"],
     agility2cj_t = COEF["agility2cj", "t value"],
+    agility2cj_sig = sigStar(COEF["agility2cj", "t value"]),
 
     network2xcj = COEF["network2xcj", "Estimate"],
     network2xcj_se = COEF["network2xcj", "Std. Error"],
     network2xcj_t = COEF["network2xcj", "t value"],
+    network2xcj_sig = sigStar(COEF["network2xcj", "t value"]),
     
     agility_network_int = COEF["I(network2xcj * agility2cj)", "Estimate"],
     agility_network_int_se = COEF["I(network2xcj * agility2cj)", "Std. Error"],
     agility_network_int_t = COEF["I(network2xcj * agility2cj)", "t value"],
+    agility_network_int_sig = sigStar(COEF["I(network2xcj * agility2cj)", "t value"]),
     
     firmsizestd = COEF["firmsizestd", "Estimate"], 
     firmsizestd_se = COEF["firmsizestd", "Std. Error"],
     firmsizestd_t = COEF["firmsizestd", "t value"],
-
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
+    
     gmci2016c = COEF["gmci2016c", "Estimate"],
     gmci2016c_se = COEF["gmci2016c", "Std. Error"],
     gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
     
     firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
     firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
     firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
     
     var_firm = VAR[4, "vcov"],
     var_intercept = VAR[1,"vcov"],
@@ -640,8 +708,9 @@ for (varRI in glo_v) {
   counter <- counter+1
 }
 
-print(o.RI_estimates)
-write.csv(o.RI_estimates, paste(filepath, "o.RI_estimates.csv", sep=""), row.names = TRUE)
+t.o.RI <- t(o.RI_estimates)
+colnames(t.o.RI) <- o.RI_estimates[,1]
+write.csv(t.o.RI, paste(filepath, "estimates.o.RI.csv", sep=""), row.names = TRUE)
 
 
 #3. outcome Random Intercept and Random Slope Model 
@@ -651,10 +720,6 @@ dv <- "outcome"
 rm(o.RIRS_estimates)
 
 for (varRIRS in glo_v) {
-  
-  #empty the model estimates container
-  #if (length(slope_estimates[, 1]) >= length(glo_v))
-  
   
   #variable setup
   culc <- paste(varRIRS, "_c", sep="")
@@ -687,34 +752,42 @@ for (varRIRS in glo_v) {
     intercept = COEF["(Intercept)", "Estimate"],
     intercept_se = COEF["(Intercept)", "Std. Error"],
     intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
     
     culc = COEF[culc, "Estimate"],
     culc_se = COEF[culc, "Std. Error"],
     culc_t = COEF[culc, "t value"],
+    culc_sig = sigStar(COEF[culc, "t value"]),
     
     agility2cj = COEF["agility2cj", "Estimate"],
     agility2cj_se = COEF["agility2cj", "Std. Error"],
     agility2cj_t = COEF["agility2cj", "t value"],
+    agility2cj_sig = sigStar(COEF["agility2cj", "t value"]),
     
     network2xcj = COEF["network2xcj", "Estimate"],
     network2xcj_se = COEF["network2xcj", "Std. Error"],
     network2xcj_t = COEF["network2xcj", "t value"],
+    network2xcj_sig = sigStar(COEF["network2xcj", "t value"]),
     
     agility_network_int = COEF["I(network2xcj * agility2cj)", "Estimate"],
     agility_network_int_se = COEF["I(network2xcj * agility2cj)", "Std. Error"],
     agility_network_int_t = COEF["I(network2xcj * agility2cj)", "t value"],
+    agility_network_int_sig = sigStar(COEF["I(network2xcj * agility2cj)", "t value"]),
     
     firmsizestd = COEF["firmsizestd", "Estimate"], 
     firmsizestd_se = COEF["firmsizestd", "Std. Error"],
     firmsizestd_t = COEF["firmsizestd", "t value"],
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
     
     gmci2016c = COEF["gmci2016c", "Estimate"],
     gmci2016c_se = COEF["gmci2016c", "Std. Error"],
     gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
     
     firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
     firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
     firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
     
     var_firm = VAR[4, "vcov"],
     var_intercept = VAR[1,"vcov"],
@@ -741,8 +814,12 @@ for (varRIRS in glo_v) {
   counter <- counter + 1
 }
 
-print(o.RIRS_estimates)
-write.csv(o.RIRS_estimates, paste(filepath, "o.RIRS_estimates.csv", sep=""), row.names = TRUE)
+
+#transpose the estimates dataframe
+t.o.RIRS <- t(o.RIRS_estimates)
+colnames(t.o.RIRS) <- o.RIRS_estimates[,1]
+write.csv(t.o.RIRS, paste(filepath, "estimates.o.RIRS.csv", sep=""), row.names = TRUE)
+
 
 
 #4. outcome Cross Level Model 
@@ -793,47 +870,57 @@ for (varCross in glo_v) {
     intercept = COEF["(Intercept)", "Estimate"],
     intercept_se = COEF["(Intercept)", "Std. Error"],
     intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
     
     culc = COEF[culc, "Estimate"],
     culc_se = COEF[culc, "Std. Error"],
     culc_t = COEF[culc, "t value"],
+    culc_sig = sigStar(COEF[culc, "t value"]),
     
     agility2cj = COEF["agility2cj", "Estimate"],
     agility2cj_se = COEF["agility2cj", "Std. Error"],
     agility2cj_t = COEF["agility2cj", "t value"],
+    agility2cj_sig = sigStar(COEF["agility2cj", "t value"]),
     
     network2xcj = COEF["network2xcj", "Estimate"],
     network2xcj_se = COEF["network2xcj", "Std. Error"],
     network2xcj_t = COEF["network2xcj", "t value"],
+    network2xcj_sig = sigStar(COEF["network2xcj", "t value"]),
     
     agility_network_int = COEF["I(network2xcj * agility2cj)", "Estimate"],
     agility_network_int_se = COEF["I(network2xcj * agility2cj)", "Std. Error"],
     agility_network_int_t = COEF["I(network2xcj * agility2cj)", "t value"],
+    agility_network_int_sig = sigStar(COEF["I(network2xcj * agility2cj)", "t value"]),
     
     firmsizestd = COEF["firmsizestd", "Estimate"], 
     firmsizestd_se = COEF["firmsizestd", "Std. Error"],
     firmsizestd_t = COEF["firmsizestd", "t value"],
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
     
     gmci2016c = COEF["gmci2016c", "Estimate"],
     gmci2016c_se = COEF["gmci2016c", "Std. Error"],
     gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
     
     firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
     firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
     firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
     
     agility_culc_int = COEF[9, "Estimate"],
     agility_culc_int_se = COEF[9, "Std. Error"],
     agility_culc_int_t = COEF[9, "t value"],
+    agility_culc_int_sig = sigStar(COEF[9, "t value"]),
     
     network_culc_int = COEF[10, "Estimate"],
     network_culc_int_se = COEF[10, "Std. Error"],
     network_culc_int_t = COEF[10, "t value"],
+    network_culc_int_sig = sigStar(COEF[10, "t value"]),
     
     triple_int = COEF[11, "Estimate"],
     triple_int_se = COEF[11, "Std. Error"],
     triple_int_t = COEF[11, "t value"],
-    
+    triple_int_sig = sigStar(COEF[11, "t value"]),
     
     var_firm = VAR[4, "vcov"],
     var_intercept = VAR[1,"vcov"],
@@ -860,10 +947,16 @@ for (varCross in glo_v) {
   counter <- counter + 1
 }
 
-print(o.cross_estimates)
-write.csv(o.cross_estimates, paste(filepath, "o.cross_estimates.csv", sep=""), row.names = TRUE)
+#transpose the estimates dataframe
+t.o.cross <- t(o.cross_estimates)
+colnames(t.o.cross) <- o.cross_estimates[,1]
+write.csv(t.o.cross, paste(filepath, "estimates_o.cross.csv", sep=""), row.names = TRUE)
+
 
 }
+
+
+
 
 #Visualization 1. Varying Level of Agility2
 

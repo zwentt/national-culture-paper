@@ -1,4 +1,0 @@
-"","model_name","dv","intercept","intercept_se","intercept_t","firmsizestd","firmsizestd_se","firmsizestd_t","gmci2016c","gmci2016c_se","gmci2016c_t","firmsize_sq","firmsize_sq_se","firmsize_sq_t","var_firm","var_country","deviance","para_count","sigularity","convWarning","aic","bic","group_count","firm_count"
-"1","o.ControlVar_ flexOutcome","flexOutcome",0.0005,0.0928,0.0056,0.0387,0.0977,0.396,-0.0501,0.049,-1.0226,-0.003,0.0099,-0.3072,0.8904,0.0925,1660.88328176817,6,FALSE,0,1672.88328176817,1699.28482644002,15,602
-"2","o.ControlVar_ speedOutcome","speedOutcome",-0.0218,0.0907,-0.2399,0.0949,0.0989,0.9591,-0.024,0.0478,-0.5019,-0.0035,0.01,-0.3468,0.9127,0.0862,1674.71052851863,6,FALSE,0,1686.71052851863,1713.11207319048,15,602
-"3","o.ControlVar_ outcome","outcome",-0.0113,0.0972,-0.1164,0.0724,0.0969,0.7473,-0.0416,0.0514,-0.8092,-0.0035,0.0098,-0.354,0.8735,0.1047,1650.92955658248,6,FALSE,0,1662.92955658248,1689.33110125433,15,602
