@@ -35,7 +35,6 @@ hof = c("pdi", "idv", "lto", "ivr", "mas", "uai")
 glo_v = c("guaiv", "gfuov", "gpdiv", "ginscolv", "ghumv", "gperv", "gigrcolv", "ggndv", "gassv")
 glo_p = c("guaip", "gfuop", "gpdip", "ginscolp", "ghump", "gpefp", "gigrcolp", "ggndp", "gassp")
 
-
 agilityMeasures = c("sensing", "proactive", "agility")
 agility2Measures = c("sensing2", "proactive2", "agility2")
 outcomeMeasures = c("flexOutcome", "speedOutcome", "outcome")
