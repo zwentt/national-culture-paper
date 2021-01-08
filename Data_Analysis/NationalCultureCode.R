@@ -9,6 +9,7 @@ library(lmtest)
 library(readr)
 library(ggplot2)
 library(extrafont)
+library(margins)
 
 options(scipen=999)
 
@@ -16,7 +17,7 @@ options(scipen=999)
 CultureData <- read_dta("D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/CultureData.dta")
 
 #Reading data from Macbook
-CultureData <- read_dta("Desktop/OneDrive - University of Toledo/Desktop/@ National Culture/Data_Analysis/CultureData.dta")
+#CultureData <- read_dta("Desktop/OneDrive - University of Toledo/Desktop/@ National Culture/Data_Analysis/CultureData.dta")
 
 #Path to save output files
 filepath <- "D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/"
@@ -933,7 +934,7 @@ for (varCross in glo_v) {
     convWarning = MdlSUM$optinfo$conv$opt,
     
     aic = AIC(currentModel.fit),
-    bic = BIC(currentModel.fit),      
+    bic = BIC(currentModel.fit),
     group_count = as.numeric(summary(currentModel.fit)$ngrps),
     firm_count = nobs(currentModel.fit)
   )
@@ -953,10 +954,226 @@ colnames(t.o.cross) <- o.cross_estimates[,1]
 write.csv(t.o.cross, paste(filepath, "estimates_o.cross.csv", sep=""), row.names = TRUE)
 
 
+
+#5a. outcome Cross Level Model - domestic firms only
+counter <- 1
+dv <- "outcome"
+#Empty the results container file when necessary
+rm(o.cross_domestic_estimates)
+
+for (varCross in glo_v) {
+  
+  #empty the model estimates container
+  #if (length(slope_estimates[, 1]) >= length(glo_v))
+  
+  
+  #variable setup
+  culc <- paste(varCross, "_c", sep="")
+  vars <- c("agility2cj", culc, "firmsizestd", "gmci2016c", "I(firmsizestd*firmsizestd)",             
+            paste("I(agility2cj*", culc, ")", sep = ""),
+            paste("(", culc, " | country)", sep="")
+  )
+  
+  vars_incld <- ""
+  for (v in vars) {
+    vars_incld <- paste(vars_incld, v, sep = " + ")
+  }
+  vars_incld <- substr(vars_incld, 4, 4000)
+  
+  o.crossModel_domestic <- eval(paste(dv, " ~ ", vars_incld, sep = ""))
+  
+  currentModel <- o.crossModel_domestic
+  
+  currentModel.fit <- blmer(currentModel, data = subset(CultureData, network2x == 0), REML = FALSE, 
+                            control=lmerControl(optimizer="Nelder_Mead", optCtrl=list(maxfun = 1e+05)), verbose = TRUE)
+  
+  print(summary(currentModel.fit))
+  
+  MdlSUM  <- summary(currentModel.fit)
+  COEF    <- round(summary(currentModel.fit)$coefficients, 4)
+  VAR     <- as.data.frame(VarCorr(currentModel.fit))
+  MdlINFO <- round(as.data.frame(logLik(currentModel.fit)*-2, 4))
+  
+  estimates <- data.frame(
+    model_name = paste("RI_", culc, sep =""), 
+    dv = dv,
+    cul = culc,
+    intercept = COEF["(Intercept)", "Estimate"],
+    intercept_se = COEF["(Intercept)", "Std. Error"],
+    intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
+    
+    culc = COEF[culc, "Estimate"],
+    culc_se = COEF[culc, "Std. Error"],
+    culc_t = COEF[culc, "t value"],
+    culc_sig = sigStar(COEF[culc, "t value"]),
+    
+    agility2cj = COEF["agility2cj", "Estimate"],
+    agility2cj_se = COEF["agility2cj", "Std. Error"],
+    agility2cj_t = COEF["agility2cj", "t value"],
+    agility2cj_sig = sigStar(COEF["agility2cj", "t value"]),
+    
+    firmsizestd = COEF["firmsizestd", "Estimate"], 
+    firmsizestd_se = COEF["firmsizestd", "Std. Error"],
+    firmsizestd_t = COEF["firmsizestd", "t value"],
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
+    
+    gmci2016c = COEF["gmci2016c", "Estimate"],
+    gmci2016c_se = COEF["gmci2016c", "Std. Error"],
+    gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
+    
+    firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
+    firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
+    firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
+    
+    agility_culc_int = COEF[7, "Estimate"],
+    agility_culc_int_se = COEF[7, "Std. Error"],
+    agility_culc_int_t = COEF[7, "t value"],
+    agility_culc_int_sig = sigStar(COEF[7, "t value"]),
+    
+    var_firm = VAR[4, "vcov"],
+    var_intercept = VAR[1,"vcov"],
+    var_culc = VAR[2,"vcov"],
+    cov_int_culc = VAR[3,"vcov"],
+    
+    deviance = as.numeric(logLik(currentModel.fit))*-2,
+    para_count = attr(logLik(currentModel.fit), "df"),
+    sigularity = isSingular(currentModel.fit, tol = .00000000001),
+    convWarning = MdlSUM$optinfo$conv$opt,
+    
+    aic = AIC(currentModel.fit),
+    bic = BIC(currentModel.fit),
+    group_count = as.numeric(summary(currentModel.fit)$ngrps),
+    firm_count = nobs(currentModel.fit)
+  )
+  
+  #Initialize a dataframe to contain all the estimates from the loop
+  if (counter == 1)
+    o.cross_domestic_estimates <- estimates
+  else 
+    o.cross_domestic_estimates <- rbind(o.cross_domestic_estimates, estimates)
+  
+  counter <- counter + 1
 }
 
+#transpose the estimates dataframe
+t.o.cross.domestic <- t(o.cross_domestic_estimates)
+colnames(t.o.cross.domestic) <- o.cross_domestic_estimates[,1]
+write.csv(t.o.cross.domestic, paste(filepath, "estimates_o.cross.domestic.csv", sep=""), row.names = TRUE)
 
 
+#5b. outcome Cross Level Model - multinational firms
+counter <- 1
+dv <- "outcome"
+#Empty the results container file when necessary
+rm(o.cross_multinational_estimates)
+
+for (varCross in glo_v) {
+  
+  #empty the model estimates container
+  #if (length(slope_estimates[, 1]) >= length(glo_v))
+  
+  
+  #variable setup
+  culc <- paste(varCross, "_c", sep="")
+  vars <- c("agility2cj", culc, "firmsizestd", "gmci2016c", "I(firmsizestd*firmsizestd)",             
+            paste("I(agility2cj*", culc, ")", sep = ""),
+            paste("(", culc, " | country)", sep="")
+  )
+  
+  vars_incld <- ""
+  for (v in vars) {
+    vars_incld <- paste(vars_incld, v, sep = " + ")
+  }
+  vars_incld <- substr(vars_incld, 4, 4000)
+  
+  o.crossModel_multinational <- eval(paste(dv, " ~ ", vars_incld, sep = ""))
+  
+  currentModel <- o.crossModel_multinational
+  
+  currentModel.fit <- blmer(currentModel, data = subset(CultureData, network2x == 1), REML = FALSE, 
+                            control=lmerControl(optimizer="Nelder_Mead", optCtrl=list(maxfun = 1e+05)), verbose = TRUE)
+  
+  print(summary(currentModel.fit))
+  
+  MdlSUM  <- summary(currentModel.fit)
+  COEF    <- round(summary(currentModel.fit)$coefficients, 4)
+  VAR     <- as.data.frame(VarCorr(currentModel.fit))
+  MdlINFO <- round(as.data.frame(logLik(currentModel.fit)*-2, 4))
+  
+  estimates <- data.frame(
+    model_name = paste("RI_", culc, sep =""), 
+    dv = dv,
+    cul = culc,
+    intercept = COEF["(Intercept)", "Estimate"],
+    intercept_se = COEF["(Intercept)", "Std. Error"],
+    intercept_t = COEF["(Intercept)", "t value"],
+    intercept_sig = sigStar(COEF["(Intercept)", "t value"]),
+    
+    culc = COEF[culc, "Estimate"],
+    culc_se = COEF[culc, "Std. Error"],
+    culc_t = COEF[culc, "t value"],
+    culc_sig = sigStar(COEF[culc, "t value"]),
+    
+    agility2cj = COEF["agility2cj", "Estimate"],
+    agility2cj_se = COEF["agility2cj", "Std. Error"],
+    agility2cj_t = COEF["agility2cj", "t value"],
+    agility2cj_sig = sigStar(COEF["agility2cj", "t value"]),
+    
+    firmsizestd = COEF["firmsizestd", "Estimate"], 
+    firmsizestd_se = COEF["firmsizestd", "Std. Error"],
+    firmsizestd_t = COEF["firmsizestd", "t value"],
+    firmsizestd_sig = sigStar(COEF["firmsizestd", "t value"]),
+    
+    gmci2016c = COEF["gmci2016c", "Estimate"],
+    gmci2016c_se = COEF["gmci2016c", "Std. Error"],
+    gmci2016c_t = COEF["gmci2016c", "t value"],
+    gmci2016c_sig = sigStar(COEF["gmci2016c", "t value"]),
+    
+    firmsize_sq = COEF["I(firmsizestd * firmsizestd)", "Estimate"],
+    firmsize_sq_se = COEF["I(firmsizestd * firmsizestd)", "Std. Error"],
+    firmsize_sq_t = COEF["I(firmsizestd * firmsizestd)", "t value"],
+    firmsize_sq_sig = sigStar(COEF["I(firmsizestd * firmsizestd)", "t value"]),
+    
+    agility_culc_int = COEF[7, "Estimate"],
+    agility_culc_int_se = COEF[7, "Std. Error"],
+    agility_culc_int_t = COEF[7, "t value"],
+    agility_culc_int_sig = sigStar(COEF[7, "t value"]),
+    
+    var_firm = VAR[4, "vcov"],
+    var_intercept = VAR[1,"vcov"],
+    var_culc = VAR[2,"vcov"],
+    cov_int_culc = VAR[3,"vcov"],
+    
+    deviance = as.numeric(logLik(currentModel.fit))*-2,
+    para_count = attr(logLik(currentModel.fit), "df"),
+    sigularity = isSingular(currentModel.fit, tol = .00000000001),
+    convWarning = MdlSUM$optinfo$conv$opt,
+    
+    aic = AIC(currentModel.fit),
+    bic = BIC(currentModel.fit),
+    group_count = as.numeric(summary(currentModel.fit)$ngrps),
+    firm_count = nobs(currentModel.fit)
+  )
+  
+  #Initialize a dataframe to contain all the estimates from the loop
+  if (counter == 1)
+    o.cross_multinational_estimates <- estimates
+  else 
+    o.cross_multinational_estimates <- rbind(o.cross_multinational_estimates, estimates)
+  
+  counter <- counter + 1
+}
+
+#transpose the estimates dataframe
+t.o.cross.multinational <- t(o.cross_multinational_estimates)
+colnames(t.o.cross.multinational) <- o.cross_multinational_estimates[,1]
+write.csv(t.o.cross.multinational, paste(filepath, "estimates_o.cross.multinational.csv", sep=""), row.names = TRUE)
+
+
+}
 
 #Visualization 1. Varying Level of Agility2
 
