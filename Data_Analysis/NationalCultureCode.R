@@ -16,6 +16,9 @@ options(scipen=999)
 #Reading data from Windows 10
 CultureData <- read_dta("D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/CultureData.dta")
 
+#Reading data from Github - use with caution! have not tried this!
+#CultureData <- read_dta("https://github.com/zwentt/national-culture-paper/raw/main/Data_Analysis/CultureData.dta")
+
 #Reading data from Macbook
 #CultureData <- read_dta("Desktop/OneDrive - University of Toledo/Desktop/@ National Culture/Data_Analysis/CultureData.dta")
 
