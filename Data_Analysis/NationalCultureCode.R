@@ -1222,3 +1222,10 @@ ggsave("visual.agilityOutcome.png")
 
 
 }
+
+#superModel <- outcome ~ firmsizestd + gmci2016c + gassv_c + gfuov_c + ggndv_c + ghumv_c + gigrcolv_c + ginscolv_c + gpdiv_c + gperv_c + guaiv_c + sensing2 + proactive2 + I(firmsizestd*firmsizestd) + gassv_c*sensing2 + gfuov_c*sensing2 + ggndv_c*sensing2 + ghumv_c*sensing2 + gigrcolv_c*sensing2 + ginscolv_c*sensing2 + gpdiv_c*sensing2 + gperv_c*sensing2 + guaiv_c*sensing2 + gassv_c*proactive2 + gfuov_c*proactive2 + ggndv_c*proactive2 + ghumv_c*proactive2 + gigrcolv_c*proactive2 + ginscolv_c*proactive2 + gpdiv_c*proactive2 + gperv_c*proactive2 + guaiv_c*proactive2 + (gassv_c + gfuov_c + ggndv_c + ghumv_c + gigrcolv_c + ginscolv_c + gpdiv_c + gperv_c + guaiv_c | countryx)
+
+#superModel2 <- outcome ~ firmsizestd + gmci2016c + gassv_c + gfuov_c + ggndv_c + ghumv_c + gigrcolv_c + ginscolv_c + gpdiv_c + gperv_c + guaiv_c + agility2 + gassv_c*agility2 + gfuov_c*agility2 + ggndv_c*agility2 + ghumv_c*agility2 + gigrcolv_c*agility2 + ginscolv_c*agility2 + gpdiv_c*agility2 + gperv_c*agility2 + guaiv_c*agility2 + I(firmsizestd*firmsizestd) +  (gassv_c + gfuov_c + ggndv_c + ghumv_c + gigrcolv_c + ginscolv_c + gpdiv_c + gperv_c + guaiv_c | countryx)
+
+
+
