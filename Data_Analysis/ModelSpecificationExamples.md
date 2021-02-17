@@ -27,3 +27,6 @@ summary(lmm.fit3)
 lmm.fit4 = lmer(Y ~ Xc * I(Wj-mean(Wj) + (Xc|l2id)), data=exdata, REML=F)
 summary(lmm.fit4)
 ```
+
+Other References: 
+> https://stats.stackexchange.com/questions/13166/rs-lmer-cheat-sheet
