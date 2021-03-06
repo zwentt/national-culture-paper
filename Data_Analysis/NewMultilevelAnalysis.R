@@ -25,12 +25,12 @@ outcome.null <- outcomecj ~  (1 | countryx)
 stan.outcome.null <- brm(outcome.null, data = CultureData, core = 6, chains = 4)
 stan.outcome.null
 
-outcome.ri <- outcomecj ~ gmci2013c + y2013std + network2xcj  + firmsizestd + agilitycj + (guaiv_c) + (1 | countryx)
+outcome.ri <- outcomecj ~   y2013std + network2xcj  + firmsizestd + agilitycj + (guaiv_c) + (1 | countryx)
 stan.outcome.ri <- brm(outcome.ri, data = CultureData, core = 6, chains = 4)
 stan.outcome.ri
 
 #gfuov_c + gpdiv_c + ginscolv_c + ghumv_c + gperv_c + gigrcolv_c + ggndv_c + gassv_c
-outcome.rirs <- outcome2cj ~ gmci2013c + y2013std + network2xcj  + firmsizestd + agility2cj + (gfuop_c) + (1 + agilitycj | countryx)
+outcome.rirs <- outcomecj ~  y2013std + network2xcj  + firmsizestd + agilitycj + (gfuop_c) + (1 + agilitycj | countryx)
 stan.outcome.rirs <- brm(outcome.rirs, data = CultureData, core = 6, chains = 4)
 stan.outcome.rirs
 
