@@ -43,7 +43,7 @@ summary(lm(outcomecj ~ 1 + firmsizestd + network2xcj*agilitycj * (guaiv_c), data
 
 
 # Agility Models
-agility.cross <- agilitycj ~ 1 + firmsizestd + (gfuop_c) + (1  | countryx)
+agility.cross <- agilitycj ~ 1 + firmsizestd + network2xcj*(gfuov_c) + (1  | countryx)
 stan.agility.cross <- brm(agility.cross, data = CultureData, core = 6, chains = 4)
 stan.agility.cross
 
