@@ -10,7 +10,19 @@ CultureData <- read_dta("https://github.com/zwentt/national-culture-paper/raw/ma
 
 guaiv.cross.brm <- brm(outcome ~ agility2cj + guaiv_c + firmsizestd + network2xcj + gmci2016c + I(firmsizestd*firmsizestd) + guaiv_c*agility2cj +  (guaiv_c | countryx), data = CultureData)
 
-gfuov.cross.brm <- brm(outcome ~ agility2cj + gfuov_c + firmsizestd + network2xcj + gmci2016c + I(firmsizestd*firmsizestd) + gfuov_c*agility2cj +  (gfuov_c | countryx), data = CultureData)
+
+
+#compiled
+gfuov.cross.brm <- brm(outcome ~ firmsizestd + I(firmsizestd*firmsizestd) + gmci2013c + network2xcj * agility2cj * gfuov_c + (gfuov_c | countryx), data = CultureData)
+
+
+gfuov.cross.domestic.brm <- brm(outcome ~ firmsizestd + I(firmsizestd*firmsizestd) + gmci2013c + agility2cj * gfuov_c + (gfuov_c | countryx), data = subset(CultureData, network2x == 0))
+
+
+gfuov.cross.multinational.brm <- brm(outcome ~ firmsizestd + I(firmsizestd*firmsizestd) + gmci2013c + agility2cj * gfuov_c + (gfuov_c | countryx), data = subset(CultureData, network2x == 1))
+
+
+
 
 gpdiv.cross.brm <- brm(outcome ~ agility2cj + gpdiv_c + firmsizestd + network2xcj + gmci2016c + I(firmsizestd*firmsizestd) + gpdiv_c*agility2cj +  (gpdiv_c | countryx), data = CultureData)
 
@@ -24,7 +36,9 @@ gigrcolv.cross.brm <- brm(outcome ~ agility2cj + gigrcolv_c + firmsizestd + netw
 
 ggndv.cross.brm <- brm(outcome ~ agility2cj + ggndv_c + firmsizestd + network2xcj + gmci2016c + I(firmsizestd*firmsizestd) + ggndv_c*agility2cj +  (ggndv_c | countryx), data = CultureData)
 
-gassv.cross.brm <- brm(outcome ~ agility2cj + gassv_c + firmsizestd + network2xcj + gmci2016c + I(firmsizestd*firmsizestd) + gassv_c*agility2cj +  (gassv_c | countryx), data = subset(CultureData, network2x == 0))
+
+
+gassv.cross.brm <- brm(outcome ~ agility2cj + gassv_c + firmsizestd + gmci2016c + I(firmsizestd*firmsizestd) + gassv_c*agility2cj +  (gassv_c | countryx), data = subset(CultureData, network2x == 1))
 
 
 

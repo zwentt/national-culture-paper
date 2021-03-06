@@ -16,6 +16,10 @@ CultureData <- read_dta("https://github.com/zwentt/national-culture-paper/raw/ma
 
 RI.brm <- brm(agility2 ~ firmsizestd + network2xcj + gmci2016c + I(firmsizestd*firmsizestd) + (1 | countryx), data = CultureData)
 
+
+
 reg.RI.brm <- brm(agility2 ~ firmsizestd + gmci2016c + I(firmsizestd*firmsizestd) + (1 | countryx), data = subset(CultureData, network2x == 0))
+
+
 
 multi.RI.brm <- brm(agility2 ~ firmsizestd + gmci2016c + I(firmsizestd*firmsizestd) + (1 | countryx), data = subset(CultureData, network2x == 1))
