@@ -11,9 +11,9 @@ library(haven)
 library(StanHeaders)
 options(scipen=10)
 
-CultureData <- read_dta("/Users/zwen/Desktop/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/CultureData.dta")
+CultureData <- read_dta("/Users/zwen/Desktop/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/CultureDataNew.dta")
 
-CultureData <- read_dta("D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/CultureData.dta")
+CultureData <- read_dta("D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/CultureDataNew.dta")
 
 
 regionalCultureData <- subset(CultureData, network2x == 0)
