@@ -253,7 +253,7 @@ for (varRI in glo_v) {
     
   currentModel <- RIModel
     
-  # currentModel.fit <- blmer(currentModel, data = CultureData, REML = FALSE, 
+  currentModel.fit <- blmer(currentModel, data = CultureData, REML = FALSE, 
                        control=lmerControl(optimizer="Nelder_Mead", optCtrl=list(maxfun = 1e+05)), verbose = TRUE)
     
   print(summary(currentModel.fit))
