@@ -3,15 +3,18 @@ library(haven)
 library(ggplot2)
 library(stargazer)
 library(blme)
-
+library(xtable)
 library(rstan)
 library(rstantools)
 library(brms)
 library(haven)
 library(StanHeaders)
+library(BayesPostEst)
 options(scipen=10)
 
-CultureData <- read_dta("/Users/zwen/Desktop/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
+CultureData <- read_dta("/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
+
+
 
 CultureData <- read_dta("D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
 
@@ -20,8 +23,46 @@ regionData <- subset(CultureData, network2x == 0)
 globalData <- subset(CultureData, network2x == 1)
 
 
+#gfuov_c + gpdiv_c + ginscolv_c + ghumv_c + gperv_c + gigrcolv_c + ggndv_c + gassv_c
+agility.null <- agility ~ 1 + (1 | countryx)
+outcome.null <- outcome ~ 1 + (1 | countryx)
 
-outcome.null <- outcomecj ~  (1 | countryx)
+fit.agility.null <- brm(agility.null, data = CultureData, refresh = 0, core = 7)
+fit.outcome.null <- brm(outcome.null, data = CultureData, refresh = 0, core = 7)
+
+fit.agility.null
+fit.outcome.null
+
+
+
+
+
+fit.agility.null <- blmer(agility.null, data = CultureData)
+fit.outcome.null <- blmer(outcome.null, data = CultureData)
+summary(fit.agility.null)
+summary(fit.outcome.null)
+
+
+fit.agility.null <- brm(agility.null, data = CultureData, core = 6, chains = 4, refresh = 0)
+fit.agility.null
+
+
+
+
+
+agility.cross <- agilitycj ~ 1 + mfr2013lnstd + network2xcj : (ginscolv_c) + firmsizestd  + (1 + network2xcj | countryx)
+fit.agility.cross <- brm(agility.cross, data = CultureData, core = 6, chains = 4, iter = 3000, control = list(adapt_delta = 0.95))
+fit.agility.cross
+
+
+# Effectiveness Models 
+
+
+
+
+
+
+
 stan.outcome.null <- brm(outcome.null, data = CultureData, core = 6, chains = 4)
 stan.outcome.null
 
@@ -30,16 +71,27 @@ stan.outcome.ri <- brm(outcome.ri, data = CultureData, core = 6, chains = 4)
 stan.outcome.ri
 
 #gfuov_c + gpdiv_c + ginscolv_c + ghumv_c + gperv_c + gigrcolv_c + ggndv_c + gassv_c
-outcome.rirs <- outcomecj ~  1 + mfr2013lnstd + network2xcj  + firmsizestd + agilitycj + (gfuov_c) + (1 + agilitycj | countryx)
+outcome.rirs <- outcome ~  1 + mfr2013lnstd + network2xcj  + firmsizestd + agilitycj + (gfuov_c) + (1 + agilitycj | countryx)
 stan.outcome.rirs <- brm(outcome.rirs, data = CultureData, core = 6, chains = 4)
 stan.outcome.rirs
 
-
-outcome.cross <- outcomecj ~ 1 + mfr2013lnstd + firmsizestd * (ginscolv_c) + network2x * agilitycj * (ginscolv_c) + (1 + agilitycj + firmsizestd | countryx)
+start.time <- Sys.time()
+outcome.cross <- outcome2 ~ 1 + mfr2013lnstd + firmsizestd + I(firmsizestd*firmsizestd) + network2xcj * agility2cj * (ginscolv_c) + (1 + agilitycj * network2xcj | countryx)
 stan.outcome.cross <- brm(outcome.cross, data = CultureData, core = 6, chains = 4, 
+                          family = gaussian(), refresh = 0
                           #prior = prior(normal(0, 1), coef = "guaiv_c")
             )
+
+end.time <- Sys.time()
+time.taken <- end.time - start.time
+
+
 stan.outcome.cross
+
+#Leave one out cross validation
+loo(stan.outcome.cross)
+loo_compare(loo(stan.outcome.rirs), loo(stan.outcome.cross))
+
 
 
 summary(lm(outcomecj ~ 1 + firmsizestd + network2xcj*agilitycj * (guaiv_c), data = CultureData))

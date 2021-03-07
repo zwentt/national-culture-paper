@@ -14,7 +14,7 @@ library(margins)
 options(scipen=999)
 
 #Reading data from Windows 10
-CultureData <- read_dta("D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/CultureData.dta")
+CultureData <- read_dta("/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
 
 #Reading data from Github - use with caution! have not tried this!
 #CultureData <- read_dta("https://github.com/zwentt/national-culture-paper/raw/main/Data_Analysis/CultureData.dta")
@@ -23,7 +23,7 @@ CultureData <- read_dta("D:/OneDrive - University of Toledo/Desktop/@ National C
 #CultureData <- read_dta("Desktop/OneDrive - University of Toledo/Desktop/@ National Culture/Data_Analysis/CultureData.dta")
 
 #Path to save output files
-filepath <- "D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/"
+filepath <- "/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/"
 
 #Work directory
 setwd(filepath)
@@ -1206,13 +1206,13 @@ ggsave("visual.agility.png")
 visual.agilityOutcome <- ggplot(CultureData, aes(x = agility2, y = outcome, group = country, shape = network2, color = network2)) +
   geom_point(alpha = .9, size = 2) +
   scale_shape_manual(values = c(2,6)) +
-  geom_smooth(method = lm, se = FALSE, aes(group = network2)) +
+  geom_smooth(method = lm, se = FALSE, aes(group = network2), size = 0.8) +
   scale_color_manual(values = c("red", "blue")) +
-  facet_wrap(~ country, ncol = 3)
+  facet_wrap(~ country, ncol = 6)
 
 #Theme setting
 visual.agilityOutcome <- visual.agilityOutcome + 
-  theme_classic() +
+  theme_bw() +
   theme(legend.position = "top", 
         axis.text.x = element_text(angle = 90),
         plot.title=element_text(face="bold", size=12)) +
