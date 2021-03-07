@@ -16,7 +16,9 @@ CultureData <- read_dta("/Users/zwen/Documents/GitHub/national-culture-paper/Dat
 
 
 
-CultureData <- read_dta("D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
+CultureData <- read_dta("D:/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
+
+
 
 
 regionData <- subset(CultureData, network2x == 0)
@@ -84,7 +86,16 @@ stan.outcome.cross <- brm(outcome.cross, data = CultureData, core = 6, chains = 
 
 end.time <- Sys.time()
 time.taken <- end.time - start.time
+#Windows 10 Intel 10th Generation Time difference of (1) 1.252521 mins
+# (2) Time difference of 59.66793 secs
+# Exploded the R
+# (3) Time difference of 1.002167 mins
+# (4) Time difference of 1.146176 mins
+# (5) Time difference of 56.23147 secs
 
+
+
+time.taken
 
 stan.outcome.cross
 
