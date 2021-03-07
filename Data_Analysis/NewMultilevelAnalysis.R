@@ -77,6 +77,8 @@ outcome.rirs <- outcome ~  1 + mfr2013lnstd + network2xcj  + firmsizestd + agili
 stan.outcome.rirs <- brm(outcome.rirs, data = CultureData, core = 6, chains = 4)
 stan.outcome.rirs
 
+
+
 start.time <- Sys.time()
 outcome.cross <- outcome2 ~ 1 + mfr2013lnstd + firmsizestd + I(firmsizestd*firmsizestd) + network2xcj * agility2cj * (ginscolv_c) + (1 + agilitycj * network2xcj | countryx)
 stan.outcome.cross <- brm(outcome.cross, data = CultureData, core = 6, chains = 4, 
@@ -99,11 +101,21 @@ time.taken <- end.time - start.time
 # (3) Time difference of 39.86928 secs
 # (4) Time difference of 37.3893 secs
 # (5) Time difference of 33.58195 secs
-
+# Dell XPS 15 
+# (1) Time difference of 1.332169 mins
+# (2) Time difference of 1.006758 mins
+# (3) Time difference of 1.031259 mins
+# (-) explode
+# (4) Time difference of 1.036921 mins
+# (5) Time difference of 1.048151 mins
 
 
 
 time.taken
+
+
+
+
 
 stan.outcome.cross
 
