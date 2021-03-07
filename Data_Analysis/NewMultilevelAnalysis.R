@@ -86,12 +86,20 @@ stan.outcome.cross <- brm(outcome.cross, data = CultureData, core = 6, chains = 
 
 end.time <- Sys.time()
 time.taken <- end.time - start.time
-#Windows 10 Intel 10th Generation Time difference of (1) 1.252521 mins
+#Windows 10 Intel 10th Generation 
+# Time difference of (1) 1.252521 mins
 # (2) Time difference of 59.66793 secs
 # Exploded the R
 # (3) Time difference of 1.002167 mins
 # (4) Time difference of 1.146176 mins
 # (5) Time difference of 56.23147 secs
+# Mac M1 
+# (1) Time difference of 34.09827 secs
+# (2) Time difference of 32.28368 secs
+# (3) Time difference of 39.86928 secs
+# (4) Time difference of 37.3893 secs
+# (5) Time difference of 33.58195 secs
+
 
 
 
