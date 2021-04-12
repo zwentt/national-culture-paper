@@ -1,0 +1,172 @@
+\documentclass[]{article}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{geometry}
+\geometry{legalpaper, margin=1 in}
+\setlength{\parindent}{0pt}
+
+%opening
+\title{The Impact of National Culture in Operations and Supply Chain Agility}
+\author{Zhezhu Wen}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Preliminary Observations}
+\subsection{Correlation Coefficients}
+
+\input{Data_Analysis/LatexTables/globe_v_corr.tex}
+
+\input{Data_Analysis/LatexTables/globe_p_corr.tex}
+
+\input{Data_Analysis/LatexTables/key_vars.tex}
+
+\input{Data_Analysis/LatexTables/key_vars_set1.tex}
+
+\input{Data_Analysis/LatexTables/key_vars_set2.tex}
+
+
+\pagebreak
+
+\section{Models}
+
+\subsection{Models: Agility and National Culture}
+
+
+$$  \textit{agility}_{ij} = \beta_0 + \beta_1 \cdot \textit{network} + \beta_2 \cdot\textit{firmsize} + \beta_3 \cdot\textit{Culture} + \varepsilon_{ij} $$
+
+
+$$ \beta_0 = \gamma_{00} + \gamma_{00}\cdot \textit{mfr2013} + u_{00}$$
+
+$$ \beta_1 = \gamma_{01} + \gamma_{01}\cdot \textit{Culture} + u_{01}$$
+
+
+brm.agility.model <- proactive2 ~ mfr2013lnstd + network2xcj*firmsize.adj.cj*cul + (1 + network2xcj | countryx)
+
+
+
+\subsection{Models: Agility Effectiveness and National Culture}
+
+
+\pagebreak
+
+\section{Results}
+
+
+\subsection{Multilevel Models}
+	
+\subsubsection{Null Models}
+\begin{landscape}
+
+\input{Data_Analysis/LatexTables/nullModels.tex}
+\input{Data_Analysis/LatexTables/nullModels2.tex}
+
+\end{landscape}
+
+
+\subsubsection{Agility Models}
+
+\begin{landscape}
+\begin{scriptsize}	
+\input{Data_Analysis/LatexTables/agilityCrossModels.tex}
+
+\input{Data_Analysis/LatexTables/agility2CrossModels.tex}
+
+\input{Data_Analysis/LatexTables/sensingCrossModels.tex}
+
+\input{Data_Analysis/LatexTables/sensing2CrossModels.tex}
+
+\input{Data_Analysis/LatexTables/proactiveCrossModels.tex}
+
+\input{Data_Analysis/LatexTables/proactive2CrossModels.tex}
+
+\input{Data_Analysis/LatexTables/agility2CrossModelsFirmSize.tex}
+
+\input{Data_Analysis/LatexTables/agility2CrossModelsDual.tex}
+
+\input{Data_Analysis/LatexTables/agilityCrossModelsDualUncorr.tex}
+
+\input{Data_Analysis/LatexTables/agility2CrossModelsDualUncorr.tex}
+
+\input{Data_Analysis/LatexTables/agilityCrossModelsPractice.tex}
+
+\input{Data_Analysis/LatexTables/agility2CrossModelsPractice.tex}
+
+\end{scriptsize}
+
+\end{landscape}
+
+
+\subsubsection{Outcome Models}
+
+\begin{landscape}
+
+\input{Data_Analysis/LatexTables/outcomeModel.tex}
+
+\input{Data_Analysis/LatexTables/outcome2Model.tex}
+
+\input{Data_Analysis/LatexTables/outcomeModelRegional.tex}
+
+\input{Data_Analysis/LatexTables/outcomeModelGlobal.tex}
+
+\input{Data_Analysis/LatexTables/outcome2ModelRegional.tex}
+
+\input{Data_Analysis/LatexTables/outcome2ModelGlobal.tex}
+
+\end{landscape}
+
+
+
+
+
+
+
+
+\begin{landscape}
+	
+\subsection{OLS with Clustered Standard Error}	
+	\input{Data_Analysis/LatexTables/OLSAgilityModels.tex}
+	
+\end{landscape}
+
+\pagebreak
+
+
+
+\begin{landscape}
+	\input{Data_Analysis/LatexTables/OLSAgility2Models.tex}
+\end{landscape}
+
+
+
+\begin{landscape}
+	\input{Data_Analysis/LatexTables/OLSAgilityModelsDefaultSE.tex}
+\end{landscape}
+
+
+
+\begin{landscape}
+	\input{Data_Analysis/LatexTables/OLSAgility2ModelsDefaultSE.tex}
+\end{landscape}
+
+
+
+\section{Plots}
+
+
+\begin{center}
+	\includegraphics[width= 425 pt]{Data_Analysis/Plots/visual.agility.png}
+\end{center}
+
+
+\begin{center}
+	\includegraphics[width= 425 pt]{Data_Analysis/Plots/visual.agilityOutcome.png}
+\end{center}
+
+
+\end{document}

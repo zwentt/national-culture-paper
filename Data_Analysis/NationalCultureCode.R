@@ -11,7 +11,7 @@ library(ggplot2)
 library(extrafont)
 library(margins)
 
-options(scipen=999)
+options(scipen=10)
 
 #Reading data from Windows 10
 CultureData <- read_dta("/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
@@ -1199,7 +1199,7 @@ visual.agility <- visual.agility +
 
 
 print(visual.agility)
-ggsave("visual.agility.png")
+ggsave("Plots/visual.agility.png", width = 8, height = 6)
 
 
 #Visualization 2a. Agility and Outcome 
@@ -1221,7 +1221,7 @@ visual.agilityOutcome <- visual.agilityOutcome +
        x = "Level of Agility")
 
 print(visual.agilityOutcome)
-ggsave("visual.agilityOutcome.png")
+ggsave("Plots/visual.agilityOutcome.png")
 
 
 }

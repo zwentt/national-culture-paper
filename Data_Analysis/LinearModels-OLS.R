@@ -1,4 +1,4 @@
-options(scipen=999)
+options(scipen=10)
 library(haven)
 library(data.table)
 library(sjstats)
@@ -9,12 +9,16 @@ library(stargazer)
 library(plm)
 
 
-cultureData <- read_dta("https://github.com/zwentt/national-culture-paper/raw/main/Data_Analysis/CultureData.dta")
+CultureData <- read_dta("/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
+CultureData <- read_dta("D:/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
 
-filepath <- "D:/OneDrive - University of Toledo/Desktop/@ National Culture/national-culture-paper/Data_Analysis/"
+filepath <- "/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/"
 
 #Work directory
 setwd(filepath)
+
+
+filepath <- "D:/Documents/GitHub/national-culture-paper/Data_Analysis/"
 
 #Variables
 culturalMeasures = c("guaip", "gfuop", "gpdip", "ginscolp", "ghump", "gpefp", "gigrcolp", "ggndp", "gassp", 
@@ -33,15 +37,15 @@ outcome2Measures = c("flexOutcome2", "speedOutcome2", "outcome2")
 allMeasures = c("sensing2", "proactive2", "agility2", "flexOutcome", "speedOutcome", "outcome")
 
 #only retain needed data columns 
-core.df <- cultureData[, c("agility2", "sensing2", "proactive2", "agility", "sensing", "proactive", 
+core.df <- CultureData[, c("agility2", "sensing2", "proactive2", "agility", "sensing", "proactive", 
                                    "flexOutcome2", "speedOutcome2", "outcome2", "flexOutcome", "speedOutcome", "outcome",
                                    "guaip", "gfuop", "gpdip", "ginscolp", "ghump", "gpefp", "gigrcolp", "ggndp", "gassp",
                                    "guaiv", "gfuov", "gpdiv", "ginscolv", "ghumv", "gperv", "gigrcolv", "ggndv", "gassv", 
                                    "pdi", "idv", "lto", "ivr", "mas", "uai",
-                                   "network2x", "firmsizecont", "firmsizestd", "gmci2013", "y2013", "country", "countryx")]
+                                   "network2x", "firmsizecont", "firmsizestd", "gmci2013", "y2013", "country", "countryx", "mfr2013lnstd", "mfr2013")]
 #log gdp per capita
 core.df$ly2013 <- log10(core.df$y2013)
-
+core.df$mfr2013ln <- log10(core.df$mfr2013)
 
 
 ##Agility Model 
@@ -54,12 +58,12 @@ for (v in glo_v) {
 }
 
 #Control Variable Only Model
-agility.control.ols.fit <- lm(agility2 ~ firmsizestd + I(firmsizestd*firmsizestd) + gmci2013, data = core.df)
+agility.control.ols.fit <- lm(agility ~ firmsizestd + I(firmsizestd*firmsizestd) + mfr2013ln, data = core.df)
 
 #model estimations 
 for (i in 1:9) {
   core.df$cul <- as.numeric(unlist(core.df[, c(glo_v[i])]))
-  assign(model.fit.names[i+1], lm(agility2 ~ firmsizestd + I(firmsizestd*firmsizestd) + gmci2013 + (network2x * cul), data = core.df))
+  assign(model.fit.names[i+1], lm(agility ~ firmsizestd + I(firmsizestd*firmsizestd) + mfr2013ln + (network2x * cul), data = core.df))
   #assign(model.fit.names[i+1], lm(outcome ~ firmsizestd + I(firmsizestd*firmsizestd) + gmci2013 + network2x + agility + cul + I(network2x*cul) + I(agility*cul), data = core.df))
   #assign(model.fit.names[i+1], lm(agility2 ~ firmsizestd + gmci2013 + ly2013 + I(firmsizestd*firmsizestd) + network2x + cul + I(cul*network2x), data = core.df))
 }
@@ -127,7 +131,7 @@ stargazer(agility.control.ols.fit,
           agility.gigrcolv.ols.fit, 
           agility.ggndv.ols.fit,
           agility.gassv.ols.fit,
-          out = "agility2.ols.estimates_all(clustered_se).html",
+          #out = "agility2.ols.estimates_all(clustered_se).html",
           se = list(agility.control.se,
                     agility.guaiv.se,
                     agility.gfuov.se,
@@ -140,24 +144,55 @@ stargazer(agility.control.ols.fit,
                     agility.gassv.se),
           covariate.labels = c("Firm Size",
                                "Firm Size Squared",
-                               "GMC Index",
+                               "Mfr Value",
                                "Network",
                                "Culture",
                                "Network * Culture"),
           title = "Level of National Culture and Agility Practices (Agility2): OLS Estimates for All Firms (Clustered Standard Error)",
-          column.labels = c("Control Model",
-                            "Uncertainty Avoidance",
-                            "Future Orientation",
-                            "Power Distance",
-                            "Institutional Collectivism",
-                            "Humane Orientation",
-                            "Performance Orientation",
-                            "In-group Collectivism",
-                            "Gender Egalitarianism",
-                            "Assertiveness"),
+          column.labels = c("Control",
+                            "UAI",
+                            "FUO",
+                            "PDI",
+                            "InsCollec",
+                            "HUM",
+                            "PERF",
+                            "IngCollec",
+                            "GEND",
+                            "ASS"),
           keep.stat = c("n", "rsq", "f", "wald"), 
-          df = FALSE)
+          df = FALSE, 
+          out = paste(filepath, "LatexTables/", "OLSAgilityModels.tex", sep=""))
 
+stargazer(agility.control.ols.fit, 
+          agility.guaiv.ols.fit,
+          agility.gfuov.ols.fit,
+          agility.gpdiv.ols.fit, 
+          agility.ginscolv.ols.fit,
+          agility.ghumv.ols.fit, 
+          agility.gperv.ols.fit, 
+          agility.gigrcolv.ols.fit, 
+          agility.ggndv.ols.fit,
+          agility.gassv.ols.fit,
+          covariate.labels = c("Firm Size",
+                               "Firm Size Squared",
+                               "Mfr Value",
+                               "Network",
+                               "Culture",
+                               "Network * Culture"),
+          title = "Level of National Culture and Agility Practices (Agility): OLS Estimates for All Firms (Default Standard Error)",
+          column.labels = c("Control",
+                            "UAI",
+                            "FUO",
+                            "PDI",
+                            "InsCollec",
+                            "HUM",
+                            "PERF",
+                            "IngCollec",
+                            "GEND",
+                            "ASS"),
+          keep.stat = c("n", "rsq", "f", "wald"), 
+          df = FALSE, 
+          out = paste(filepath, "LatexTables/", "OLSAgilityModelsDefaultSE.tex", sep=""))
 
 
 ##Outcome Model
