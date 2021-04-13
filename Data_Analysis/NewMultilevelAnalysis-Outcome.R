@@ -58,7 +58,7 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 outcome.control.brm.fit <- brm(outcome ~ mfr2013lnstd + network2xcj + firmsize.adj.cj + (1 | countryx), data = CultureData)
 
-brm.outcome.model <- outcome ~ mfr2013lnstd + network2xcj + firmsize.adj.cj * agilitycj * cul + (1 + network2xcj + agilitycj | countryx)
+brm.outcome.model <- outcome ~ mfr2013lnstd +  firmsize.adj.cj + network2xcj * agilitycj * cul + (1 + network2xcj + agilitycj | countryx)
 #brm.outcome.model <- outcome ~ mfr2013lnstd + (network2xcj + firmsize.adj.cj) * agilitycj * cul + (1 + firmsize.adj.cj + network2xcj + agilitycj | countryx)
 
 
@@ -83,7 +83,7 @@ mcmcReg(list(outcome.control.brm.fit,
              outcome.gassv.brm.fit),
         pars = c("b", "sd", "sigma"),
         ci = 0.95, format = "latex", caption = "Outcome Models - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "outcomeModel", sep=""), 
+        file = paste(filepath, "LatexTables/", "04122021-outcomeModel", sep=""), 
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
@@ -99,7 +99,7 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 outcome2.control.brm.fit <- brm(outcome2 ~ mfr2013lnstd + network2xcj + firmsize.adj.cj + (1 | countryx), data = CultureData)
 
-brm.outcome2.model <- outcome2 ~ mfr2013lnstd + network2xcj + firmsize.adj.cj * agility2cj * cul + (1 + network2xcj + agility2cj | countryx)
+brm.outcome2.model <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj + network2xcj * agility2cj * cul + (1 + network2xcj + agility2cj | countryx)
 #brm.outcome2.model <- outcome2 ~ mfr2013lnstd + (network2xcj + firmsize.adj.cj) * agility2cj * cul + (1 + firmsize.adj.cj + network2xcj + agility2cj | countryx)
 
 
@@ -125,7 +125,7 @@ mcmcReg(list(outcome2.control.brm.fit,
              outcome2.gassv.brm.fit),
         pars = c("b", "sd", "sigma"),
         ci = 0.95, format = "latex", caption = "Outcome2 Models - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "outcome2Model", sep=""), 
+        file = paste(filepath, "LatexTables/", "04122021-outcome2Model", sep=""), 
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
@@ -166,7 +166,7 @@ mcmcReg(list(outcome.control.brm.fit.regional,
              outcome.gassv.brm.fit.regional),
         pars = c("b", "sd", "sigma"),
         ci = 0.95, format = "latex", caption = "Outcome Models (Regional) - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "outcomeModelRegional", sep=""), 
+        file = paste(filepath, "LatexTables/", "04122021-outcomeModelRegional", sep=""), 
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
@@ -207,7 +207,7 @@ mcmcReg(list(outcome.control.brm.fit.global,
              outcome.gassv.brm.fit.global),
         pars = c("b", "sd", "sigma"),
         ci = 0.95, format = "latex", caption = "Outcome Models (Global) - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "outcomeModelGlobal", sep=""), 
+        file = paste(filepath, "LatexTables/", "04122021-outcomeModelGlobal", sep=""), 
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
@@ -225,7 +225,7 @@ for (v in glo_v) {
 outcome2.control.brm.fit.regional <- brm(outcome2 ~ mfr2013lnstd + firmsize.adj.cj + (1 | countryx), data = regionalData)
 
 brm.outcome2.model.regional <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj + agility2cj * cul + (1 + agility2cj | countryx)
-brm.outcome2.model.regional <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj * agility2cj * cul + (1 + firmsize.adj.cj + agility2cj | countryx)
+#brm.outcome2.model.regional <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj * agility2cj * cul + (1 + firmsize.adj.cj + agility2cj | countryx)
 
 #model estimations 
 for (i in 1:9) {
@@ -249,7 +249,7 @@ mcmcReg(list(outcome2.control.brm.fit.regional,
              outcome2.gassv.brm.fit.regional),
         pars = c("b", "sd", "sigma"),
         ci = 0.95, format = "latex", caption = "Outcome2 Models (Regional) - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "outcome2ModelRegional", sep=""), 
+        file = paste(filepath, "LatexTables/", "04122021-outcome2ModelRegional", sep=""), 
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
@@ -290,31 +290,5 @@ mcmcReg(list(outcome2.control.brm.fit.global,
              outcome2.gassv.brm.fit.global),
         pars = c("b", "sd", "sigma"),
         ci = 0.95, format = "latex", caption = "Outcome2 Models (Global) - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "outcome2ModelGlobal", sep=""), 
+        file = paste(filepath, "LatexTables/", "04122021-outcome2ModelGlobal", sep=""), 
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
-
-
-
-
-
-
-
-
-
-#2. Outcome Sub Models 
-
-
-
-
-
-
-#3. flexOutcome Models 
-
-
-
-#4. speedOutcome Models
-
-
-
-
-
