@@ -47,48 +47,46 @@ eachCountry <- subset(CultureData, pickone == 1)
 
 
 
-#1/6. Outcome Models 
-rm(brm.outcome.fit.names)
-brm.outcome.fit.names <- "outcome.control.brm.fit"
+#1/6. Outcome Sub Models 
+rm(brm.outcomeSub.fit.names)
+brm.outcomeSub.fit.names <- "outcomeSub.control.brm.fit"
 
 for (v in glo_v) {
-  brm.outcome.fit.names <- c(brm.outcome.fit.names, paste("outcome.", v, ".brm.fit", sep = ""))
+  brm.outcomeSub.fit.names <- c(brm.outcomeSub.fit.names, paste("outcomeSub.", v, ".brm.fit", sep = ""))
 }
 
 #Fitting Control Variable Only Model
-outcome.control.brm.fit <- brm(outcome ~ mfr2013lnstd + network2xcj + firmsize.adj.cj + (1 | countryx), data = CultureData)
+outcomeSub.control.brm.fit <- brm(outcome ~ mfr2013lnstd + network2xcj + firmsize.adj.cj + (1 | countryx), data = CultureData)
 
-brm.outcome.model <- outcome ~ mfr2013lnstd + network2xcj + firmsize.adj.cj * agilitycj * cul + (1 + network2xcj + agilitycj | countryx)
-#brm.outcome.model <- outcome ~ mfr2013lnstd + (network2xcj + firmsize.adj.cj) * agilitycj * cul + (1 + firmsize.adj.cj + network2xcj + agilitycj | countryx)
-
+brm.outcomeSub.model <- outcome ~ mfr2013lnstd + (network2xcj + firmsize.adj.cj) * (sensingcj + proactivecj) * cul + (1 + firmsize.adj.cj + network2xcj + sensingcj + proactivecj | countryx)
 
 #model estimations 
 for (i in 1:9) {
   CultureData$cul <- as.numeric(unlist(CultureData[, c(glo_vc[i])]))
-  assign(brm.outcome.fit.names[i+1], brm(brm.outcome.model, data = CultureData, core = 8, chains = 4, iter = 3000, refresh = 0, control = list(adapt_delta = 0.99)))
+  assign(brm.outcomeSub.fit.names[i+1], brm(brm.outcomeSub.model, data = CultureData, core = 8, chains = 4, iter = 3000, refresh = 0, control = list(adapt_delta = 0.99)))
   #Give R a break to cool down the CPU
   Sys.sleep(20)
 }
 
 #Model Output using mcmcReg
-mcmcReg(list(outcome.control.brm.fit,
-             outcome.guaiv.brm.fit,
-             outcome.gfuov.brm.fit,
-             outcome.gpdiv.brm.fit,
-             outcome.ginscolv.brm.fit,
-             outcome.ghumv.brm.fit,
-             outcome.gperv.brm.fit,
-             outcome.gigrcolv.brm.fit,
-             outcome.ggndv.brm.fit,
-             outcome.gassv.brm.fit),
+mcmcReg(list(outcomeSub.control.brm.fit,
+             outcomeSub.guaiv.brm.fit,
+             outcomeSub.gfuov.brm.fit,
+             outcomeSub.gpdiv.brm.fit,
+             outcomeSub.ginscolv.brm.fit,
+             outcomeSub.ghumv.brm.fit,
+             outcomeSub.gperv.brm.fit,
+             outcomeSub.gigrcolv.brm.fit,
+             outcomeSub.ggndv.brm.fit,
+             outcomeSub.gassv.brm.fit),
         pars = c("b", "sd", "sigma"),
-        ci = 0.95, format = "latex", caption = "Outcome Models - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "outcomeModel", sep=""), 
+        ci = 0.95, format = "latex", caption = "Outcome Sub Models - Cross Interaction",
+        file = paste(filepath, "LatexTables/", "outcomeSubModel", sep=""), 
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
 
-#2/6. Outcome Models 
+#2/6. Outcome2 Sub Models 
 rm(brm.outcome2.fit.names)
 brm.outcome2.fit.names <- "outcome2.control.brm.fit"
 
@@ -99,8 +97,7 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 outcome2.control.brm.fit <- brm(outcome2 ~ mfr2013lnstd + network2xcj + firmsize.adj.cj + (1 | countryx), data = CultureData)
 
-brm.outcome2.model <- outcome2 ~ mfr2013lnstd + network2xcj + firmsize.adj.cj * agility2cj * cul + (1 + network2xcj + agility2cj | countryx)
-#brm.outcome2.model <- outcome2 ~ mfr2013lnstd + (network2xcj + firmsize.adj.cj) * agility2cj * cul + (1 + firmsize.adj.cj + network2xcj + agility2cj | countryx)
+brm.outcome2.model <- outcome2 ~ mfr2013lnstd + (network2xcj + firmsize.adj.cj) * agility2cj * cul + (1 + firmsize.adj.cj + network2xcj + agility2cj | countryx)
 
 
 #model estimations 
@@ -129,7 +126,7 @@ mcmcReg(list(outcome2.control.brm.fit,
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
-#3/6. Outcome Models - Regional 
+#3/6. Outcome Sub Models - Regional 
 rm(brm.outcome.fit.names.regional)
 brm.outcome.fit.names.regional <- "outcome.control.brm.fit.regional"
 
@@ -140,8 +137,7 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 outcome.control.brm.fit.regional <- brm(outcome ~ mfr2013lnstd + firmsize.adj.cj + (1 | countryx), data = regionalData)
 
-brm.outcome.model.regional <- outcome ~ mfr2013lnstd + firmsize.adj.cj + agilitycj * cul + (1 + agilitycj | countryx)
-#brm.outcome.model.regional <- outcome ~ mfr2013lnstd + firmsize.adj.cj * agilitycj * cul + (1 + firmsize.adj.cj + agilitycj | countryx)
+brm.outcome.model.regional <- outcome ~ mfr2013lnstd + firmsize.adj.cj * agilitycj * cul + (1 + firmsize.adj.cj + agilitycj | countryx)
 
 
 #model estimations 
@@ -170,7 +166,7 @@ mcmcReg(list(outcome.control.brm.fit.regional,
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
-#4/6. Outcome Models - Global 
+#4/6. Outcome Sub Models - Global 
 rm(brm.outcome.fit.names.global)
 brm.outcome.fit.names.global <- "outcome.control.brm.fit.global"
 
@@ -181,8 +177,7 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 outcome.control.brm.fit.global <- brm(outcome ~ mfr2013lnstd + firmsize.adj.cj + (1 | countryx), data = globalData)
 
-brm.outcome.model.global <- outcome ~ mfr2013lnstd + firmsize.adj.cj + agilitycj * cul + (1 + agilitycj | countryx)
-#brm.outcome.model.global <- outcome ~ mfr2013lnstd + firmsize.adj.cj * agilitycj * cul + (1 + firmsize.adj.cj + agilitycj | countryx)
+brm.outcome.model.global <- outcome ~ mfr2013lnstd + firmsize.adj.cj * agilitycj * cul + (1 + firmsize.adj.cj + agilitycj | countryx)
 
 
 #model estimations 
@@ -213,7 +208,7 @@ mcmcReg(list(outcome.control.brm.fit.global,
 
 
 
-#5/6. Outcome2 Models - Regional 
+#5/6. Outcome2 Sub Models - Regional 
 rm(brm.outcome2.fit.names.regional)
 brm.outcome2.fit.names.regional <- "outcome2.control.brm.fit.regional"
 
@@ -224,8 +219,8 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 outcome2.control.brm.fit.regional <- brm(outcome2 ~ mfr2013lnstd + firmsize.adj.cj + (1 | countryx), data = regionalData)
 
-brm.outcome2.model.regional <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj + agility2cj * cul + (1 + agility2cj | countryx)
 brm.outcome2.model.regional <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj * agility2cj * cul + (1 + firmsize.adj.cj + agility2cj | countryx)
+
 
 #model estimations 
 for (i in 1:9) {
@@ -253,7 +248,7 @@ mcmcReg(list(outcome2.control.brm.fit.regional,
         custom.model.names = c("Control", "UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
-#6/6. Outcome2 Models - Global 
+#6/6. Outcome2 Sub Models - Global 
 rm(brm.outcome2.fit.names.global)
 brm.outcome2.fit.names.global <- "outcome2.control.brm.fit.global"
 
@@ -264,8 +259,7 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 outcome2.control.brm.fit.global <- brm(outcome2 ~ mfr2013lnstd + firmsize.adj.cj + (1 | countryx), data = globalData)
 
-brm.outcome2.model.global <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj + agility2cj * cul + (1 + agility2cj | countryx)
-#brm.outcome2.model.global <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj * agility2cj * cul + (1 + firmsize.adj.cj + agility2cj | countryx)
+brm.outcome2.model.global <- outcome2 ~ mfr2013lnstd + firmsize.adj.cj * agility2cj * cul + (1 + firmsize.adj.cj + agility2cj | countryx)
 
 
 #model estimations 
