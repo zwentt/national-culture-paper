@@ -106,12 +106,12 @@ for (v in glo_v) {
 #agility.control.brm.fit <- brm(agility ~ mfr2013std + network2xcj + firmsize.adj.cj + strategycj + competitive1cj + (1 | countryx), data = CultureData)
 
 #All other models 
-brm.agility.model <- agility ~ mfr2013std + firmsize.adj.cj  + strategycj + (competitive1cj + network2xcj) *cul + competitive1cj:network2xcj:cul + (1 + network2xcj + competitive1cj | countryx)
+brm.agility.model <- agility ~ mfr2013.z + firmsize.adj.cj  + strategycj + (competitive1cj + network2xcj) *cul + competitive1cj:network2xcj:cul + (1 + network2xcj + competitive1cj | countryx)
 
 
 #model estimations 
 for (i in 1:9) {
-  CultureData$cul <- as.numeric(unlist(CultureData[, c(glo_vc[i])]))
+  CultureData$cul <- as.numeric(unlist(CultureData[, c(glo_vz[i])]))
   assign(brm.fit.names[i+1], brm(brm.agility.model, data = CultureData, core = 8, chains = 4, iter = 3000, refresh = 0, control = list(adapt_delta = 0.99)))
   #Give R a break to cool down the CPU
   Sys.sleep(15)
@@ -129,8 +129,8 @@ mcmcReg(list(agility.guaiv.brm.fit,
              agility.ggndv.brm.fit,
              agility.gassv.brm.fit),
         pars = c("b", "sd", "sigma", "cor"),
-        ci = 0.95, format = "latex", caption = "Agility Models - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "agilityCrossModelsCompetitive", sep=""), 
+        ci = 0.95, format = "latex", caption = "Agility Models (Z) - Cross Interaction",
+        file = paste(filepath, "LatexTables/", "agilityCrossModelsCompetitiveZ", sep=""), 
         custom.model.names = c("UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 # 2/6. Agility2 Cross Interaction Model - Competitive1 Variable
@@ -146,12 +146,12 @@ for (v in glo_v) {
 #agility2.control.brm.fit <- brm(agility2 ~ mfr2013lnstd + strategycj + network2xcj + firmsize.adj.cj + competitive1cj + (1 | countryx), data = CultureData)
 
 #All other models 
-brm.agility2.model <- agility2 ~ mfr2013std + firmsize.adj.cj  + strategycj + (competitive1cj + network2xcj) *cul + competitive1cj:network2xcj:cul + (1 + network2xcj + competitive1cj | countryx)
+brm.agility2.model <- agility2 ~ mfr2013.z + firmsize.adj.cj  + strategycj + (competitive1cj + network2xcj) *cul + competitive1cj:network2xcj:cul + (1 + network2xcj + competitive1cj | countryx)
 
 
 #model estimations 
 for (i in 1:9) {
-  CultureData$cul <- as.numeric(unlist(CultureData[, c(glo_vc[i])]))
+  CultureData$cul <- as.numeric(unlist(CultureData[, c(glo_vz[i])]))
   assign(brm.fit.names[i+1], brm(brm.agility2.model, data = CultureData, core = 8, chains = 4, iter = 3000, refresh = 0, control = list(adapt_delta = 0.99)))
   #Give R a break to cool down the CPU
   Sys.sleep(15)
@@ -169,8 +169,8 @@ mcmcReg(list(agility2.guaiv.brm.fit,
              agility2.ggndv.brm.fit,
              agility2.gassv.brm.fit),
         pars = c("b", "sd", "sigma", "cor"),
-        ci = 0.95, format = "latex", caption = "Agility2 Models - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "agility2CrossModelsCompetitive", sep=""), 
+        ci = 0.95, format = "latex", caption = "Agility2 Models (Z) - Cross Interaction",
+        file = paste(filepath, "LatexTables/", "agility2CrossModelsCompetitiveZ", sep=""), 
         custom.model.names = c("UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
@@ -188,12 +188,12 @@ for (v in glo_v) {
 #agility2.control.brm.fit <- brm(agility2 ~ mfr2013lnstd + strategycj + network2xcj + firmsize.adj.cj + competitive1cj + (1 | countryx), data = CultureData)
 
 #All other models 
-brm.agility2.model.regional <- agility2 ~ mfr2013std + firmsize.adj.cj  + strategycj + (competitive1cj) *cul + competitive1cj:cul + (1 + competitive1cj | countryx)
+brm.agility2.model.regional <- agility2 ~ mfr2013.z + firmsize.adj.cj  + strategycj + (competitive1cj) *cul + competitive1cj:cul + (1 + competitive1cj | countryx)
 
 
 #model estimations 
 for (i in 1:9) {
-  regionalData$cul <- as.numeric(unlist(regionalData[, c(glo_vc[i])]))
+  regionalData$cul <- as.numeric(unlist(regionalData[, c(glo_vz[i])]))
   assign(brm.fit.names[i+1], brm(brm.agility2.model.regional, data = regionalData, core = 8, chains = 4, iter = 3000, refresh = 0, control = list(adapt_delta = 0.99)))
   #Give R a break to cool down the CPU
   Sys.sleep(15)
@@ -211,8 +211,8 @@ mcmcReg(list(agility2.guaiv.brm.fit.regional,
              agility2.ggndv.brm.fit.regional,
              agility2.gassv.brm.fit.regional),
         pars = c("b", "sd", "cor", "sigma"),
-        ci = 0.95, format = "latex", caption = "Agility2 Models for Regional Firms - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "agility2CrossModelsCompetitiveRegional", sep=""), 
+        ci = 0.95, format = "latex", caption = "Agility2 Models for Regional Firms (Z) - Cross Interaction",
+        file = paste(filepath, "LatexTables/", "agility2CrossModelsCompetitiveRegionalZ", sep=""), 
         custom.model.names = c("UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
@@ -229,13 +229,13 @@ for (v in glo_v) {
 #agility2.control.brm.fit <- brm(agility2 ~ mfr2013lnstd + strategycj + network2xcj + firmsize.adj.cj + competitive1cj + (1 | countryx), data = CultureData)
 
 #All other models 
-brm.agility2.model.global <- agility2 ~ mfr2013std + firmsize.adj.cj  + strategycj + (competitive1cj) *cul + competitive1cj:cul + 
+brm.agility2.model.global <- agility2 ~ mfr2013.z + firmsize.adj.cj  + strategycj + (competitive1cj) *cul + competitive1cj:cul + 
   (1 + competitive1cj | countryx)
 
 
 #model estimations 
 for (i in 1:9) {
-  globalData$cul <- as.numeric(unlist(globalData[, c(glo_vc[i])]))
+  globalData$cul <- as.numeric(unlist(globalData[, c(glo_vz[i])]))
   assign(brm.fit.names[i+1], brm(brm.agility2.model.global, data = globalData, core = 8, chains = 4, iter = 3000, refresh = 0, control = list(adapt_delta = 0.99)))
   #Give R a break to cool down the CPU
   Sys.sleep(15)
@@ -253,6 +253,7 @@ mcmcReg(list(agility2.guaiv.brm.fit.global,
              agility2.ggndv.brm.fit.global,
              agility2.gassv.brm.fit.global),
         pars = c("b", "sd", "cor", "sigma"),
-        ci = 0.95, format = "latex", caption = "Agility2 Models for Global Firms - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "agility2CrossModelsCompetitiveGlobal", sep=""), 
+        ci = 0.95, format = "latex", caption = "Agility2 Models for Global Firms (Z) - Cross Interaction",
+        file = paste(filepath, "LatexTables/", "agility2CrossModelsCompetitiveGlobalZ", sep=""), 
         custom.model.names = c("UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
+

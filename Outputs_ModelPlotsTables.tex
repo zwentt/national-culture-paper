@@ -46,6 +46,9 @@ $$ \beta_0 = \gamma_{00} + \gamma_{00}\cdot \textit{mfr2013} + u_{00}$$
 $$ \beta_1 = \gamma_{01} + \gamma_{01}\cdot \textit{Culture} + u_{01}$$
 
 
+
+
+
 brm.agility.model <- proactive2 ~ mfr2013lnstd + network2xcj*firmsize.adj.cj*cul + (1 + network2xcj | countryx)
 
 
@@ -66,112 +69,35 @@ brm.agility.model <- proactive2 ~ mfr2013lnstd + network2xcj*firmsize.adj.cj*cul
 \input{Data_Analysis/LatexTables/nullModels.tex}
 \input{Data_Analysis/LatexTables/nullModels2.tex}
 
+
 \end{landscape}
 
 
 \subsubsection{Agility Models}
 
 \begin{landscape}
-\begin{scriptsize}	
-\input{Data_Analysis/LatexTables/agilityCrossModels.tex}
-
-\input{Data_Analysis/LatexTables/agility2CrossModels.tex}
-
-\input{Data_Analysis/LatexTables/sensingCrossModels.tex}
-
-\input{Data_Analysis/LatexTables/sensing2CrossModels.tex}
-
-\input{Data_Analysis/LatexTables/proactiveCrossModels.tex}
-
-\input{Data_Analysis/LatexTables/proactive2CrossModels.tex}
-
-\input{Data_Analysis/LatexTables/agility2CrossModelsFirmSize.tex}
-
-\input{Data_Analysis/LatexTables/agility2CrossModelsDual.tex}
-
-\input{Data_Analysis/LatexTables/agilityCrossModelsDualUncorr.tex}
-
-\input{Data_Analysis/LatexTables/agility2CrossModelsDualUncorr.tex}
-
-\input{Data_Analysis/LatexTables/agilityCrossModelsPractice.tex}
-
-\input{Data_Analysis/LatexTables/agility2CrossModelsPractice.tex}
-
-\end{scriptsize}
-
+	
+	\input{Data_Analysis/LatexTables/agility2CrossModelsCompetitive.tex}
+	\input{Data_Analysis/LatexTables/agility2CrossModelsCompetitiveZ.tex}
+	\input{Data_Analysis/LatexTables/agility2CrossModelsCompetitiveRegional.tex}
+	\input{Data_Analysis/LatexTables/agility2CrossModelsCompetitiveRegionalZ.tex}
+	\input{Data_Analysis/LatexTables/agility2CrossModelsCompetitiveGlobal.tex}
+	\input{Data_Analysis/LatexTables/agility2CrossModelsCompetitiveGlobalZ.tex}	
 \end{landscape}
 
 
 \subsubsection{Outcome Models}
 
-Models with firm size random effect included (04122021 Afternoon): 
-\begin{landscape}
-
-	\input{Data_Analysis/LatexTables/outcomeModel.tex}
-	
-	\input{Data_Analysis/LatexTables/outcome2Model.tex}
-	
-	\input{Data_Analysis/LatexTables/outcomeModelRegional.tex}
-	
-	\input{Data_Analysis/LatexTables/outcomeModelGlobal.tex}
-	
-	\input{Data_Analysis/LatexTables/outcome2ModelRegional.tex}
-	
-	\input{Data_Analysis/LatexTables/outcome2ModelGlobal.tex}
-
-\end{landscape}
-
-
-
-Models with firm size random effect excluded:
 \begin{landscape}
 	
-	\input{Data_Analysis/LatexTables/04122021-outcomeModel.tex}
+	\input{Data_Analysis/LatexTables/outcome2ModelFinal.tex}
+	\input{Data_Analysis/LatexTables/outcome2ModelFinalZ.tex}
+	\input{Data_Analysis/LatexTables/outcome2ModelFinalRegional.tex}
+	\input{Data_Analysis/LatexTables/outcome2ModelFinalRegionalZ.tex}
+	\input{Data_Analysis/LatexTables/outcome2ModelFinalGlobal.tex}
+	\input{Data_Analysis/LatexTables/outcome2ModelFinalGlobalZ.tex}
+
 	
-	\input{Data_Analysis/LatexTables/04122021-outcome2Model.tex}
-	
-	\input{Data_Analysis/LatexTables/04122021-outcomeModelRegional.tex}
-	
-	\input{Data_Analysis/LatexTables/04122021-outcomeModelGlobal.tex}
-	
-	\input{Data_Analysis/LatexTables/04122021-outcome2ModelRegional.tex}
-	
-	\input{Data_Analysis/LatexTables/04122021-outcome2ModelGlobal.tex}
-	
-\end{landscape}
-
-
-
-
-
-
-
-
-\begin{landscape}
-	
-\subsection{OLS with Clustered Standard Error}	
-	\input{Data_Analysis/LatexTables/OLSAgilityModels.tex}
-	
-\end{landscape}
-
-\pagebreak
-
-
-
-\begin{landscape}
-	\input{Data_Analysis/LatexTables/OLSAgility2Models.tex}
-\end{landscape}
-
-
-
-\begin{landscape}
-	\input{Data_Analysis/LatexTables/OLSAgilityModelsDefaultSE.tex}
-\end{landscape}
-
-
-
-\begin{landscape}
-	\input{Data_Analysis/LatexTables/OLSAgility2ModelsDefaultSE.tex}
 \end{landscape}
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  12 APR 2021 23:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  21 APR 2021 03:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -125,63 +125,6 @@ LaTeX Warning: Label `table:coefficients' multiply defined.
 
 LaTeX Warning: Label `table:coefficients' multiply defined.
 
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `table:coefficients' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
 )
 \openout1 = `Outputs_ModelPlotsTables.aux'.
 
@@ -283,74 +226,44 @@ Overfull \hbox (26.96823pt too wide) in paragraph at lines 7--22
 
 
 ]
-(./Data_Analysis/LatexTables/agilityCrossModels.tex)
-(./Data_Analysis/LatexTables/agility2CrossModels.tex)
-(./Data_Analysis/LatexTables/sensingCrossModels.tex)
-(./Data_Analysis/LatexTables/sensing2CrossModels.tex)
-(./Data_Analysis/LatexTables/proactiveCrossModels.tex)
-(./Data_Analysis/LatexTables/proactive2CrossModels.tex)
-(./Data_Analysis/LatexTables/agility2CrossModelsFirmSize.tex)
-(./Data_Analysis/LatexTables/agility2CrossModelsDual.tex)
-(./Data_Analysis/LatexTables/agilityCrossModelsDualUncorr.tex)
-(./Data_Analysis/LatexTables/agility2CrossModelsDualUncorr.tex)
-(./Data_Analysis/LatexTables/agilityCrossModelsPractice.tex)
-(./Data_Analysis/LatexTables/agility2CrossModelsPractice.tex) [6] [7] [8]
-[9] [10] [11] [12] [13] [14] [15] [16] [17] [18
+(./Data_Analysis/LatexTables/agility2CrossModelsCompetitive.tex)
+(./Data_Analysis/LatexTables/agility2CrossModelsCompetitiveZ.tex)
+(./Data_Analysis/LatexTables/agility2CrossModelsCompetitiveRegional.tex)
+(./Data_Analysis/LatexTables/agility2CrossModelsCompetitiveRegionalZ.tex)
+(./Data_Analysis/LatexTables/agility2CrossModelsCompetitiveGlobal.tex)
+(./Data_Analysis/LatexTables/agility2CrossModelsCompetitiveGlobalZ.tex)
+[6] [7] [8] [9] [10] [11] [12
 
 
 ]
-(./Data_Analysis/LatexTables/outcomeModel.tex
+(./Data_Analysis/LatexTables/outcome2ModelFinal.tex
 
-LaTeX Warning: Float too large for page by 15.3894pt on input line 49.
+LaTeX Warning: Float too large for page by 63.3894pt on input line 53.
 
-) (./Data_Analysis/LatexTables/outcome2Model.tex
+) (./Data_Analysis/LatexTables/outcome2ModelFinalZ.tex
 
-LaTeX Warning: Float too large for page by 15.3894pt on input line 49.
+LaTeX Warning: Float too large for page by 66.44496pt on input line 53.
 
-) (./Data_Analysis/LatexTables/outcomeModelRegional.tex)
-(./Data_Analysis/LatexTables/outcomeModelGlobal.tex)
-(./Data_Analysis/LatexTables/outcome2ModelRegional.tex)
-(./Data_Analysis/LatexTables/outcome2ModelGlobal.tex) [19] [20] [21] [22]
-[23] [24] [25
-
-
-] (./Data_Analysis/LatexTables/04122021-outcomeModel.tex)
-(./Data_Analysis/LatexTables/04122021-outcome2Model.tex)
-(./Data_Analysis/LatexTables/04122021-outcomeModelRegional.tex)
-(./Data_Analysis/LatexTables/04122021-outcomeModelGlobal.tex)
-(./Data_Analysis/LatexTables/04122021-outcome2ModelRegional.tex)
-(./Data_Analysis/LatexTables/04122021-outcome2ModelGlobal.tex) [26] [27]
-[28] [29] [30] [31] (./Data_Analysis/LatexTables/OLSAgilityModels.tex) [32
-
-
-
-]
-(./Data_Analysis/LatexTables/OLSAgility2Models.tex) [33
-
-
-]
-(./Data_Analysis/LatexTables/OLSAgilityModelsDefaultSE.tex) [34
-
-
-]
-(./Data_Analysis/LatexTables/OLSAgility2ModelsDefaultSE.tex) [35
-
-
-]
-<Data_Analysis/Plots/visual.agility.png, id=126, 2409.0pt x 1806.75pt>
+) (./Data_Analysis/LatexTables/outcome2ModelFinalRegional.tex)
+(./Data_Analysis/LatexTables/outcome2ModelFinalRegionalZ.tex)
+(./Data_Analysis/LatexTables/outcome2ModelFinalGlobal.tex)
+(./Data_Analysis/LatexTables/outcome2ModelFinalGlobalZ.tex) [13] [14] [15]
+[16] [17] [18]
+<Data_Analysis/Plots/visual.agility.png, id=72, 2409.0pt x 1806.75pt>
 File: Data_Analysis/Plots/visual.agility.png Graphic file (type png)
 <use Data_Analysis/Plots/visual.agility.png>
 Package pdftex.def Info: Data_Analysis/Plots/visual.agility.png  used on input 
-line 183.
+line 109.
 (pdftex.def)             Requested size: 425.0pt x 318.74988pt.
-<Data_Analysis/Plots/visual.agilityOutcome.png, id=128, 2847.63875pt x 2341.748
-75pt>
+<Data_Analysis/Plots/visual.agilityOutcome.png, id=74, 2847.63875pt x 2341.7487
+5pt>
 File: Data_Analysis/Plots/visual.agilityOutcome.png Graphic file (type png)
 <use Data_Analysis/Plots/visual.agilityOutcome.png>
 Package pdftex.def Info: Data_Analysis/Plots/visual.agilityOutcome.png  used on
- input line 188.
+ input line 114.
 (pdftex.def)             Requested size: 425.0pt x 349.49628pt.
- [36
+ [19
+
 
  <./Data_Analysis/Plots/visual.agility.png> <./Data_Analysis/Plots/visual.agili
 tyOutcome.png>] (./Outputs_ModelPlotsTables.aux)
@@ -359,13 +272,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1861 strings out of 480608
- 31910 string characters out of 5903631
- 494306 words of memory out of 5000000
- 17662 multiletter control sequences out of 15000+600000
+ 1796 strings out of 480608
+ 29349 string characters out of 5903631
+ 391940 words of memory out of 5000000
+ 17645 multiletter control sequences out of 15000+600000
  537546 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,9n,29p,347b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,9n,29p,350b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -379,10 +292,10 @@ xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texli
 ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
 /2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Outputs_ModelPlotsTables.pdf (36 pages, 1312673 bytes).
+Output written on Outputs_ModelPlotsTables.pdf (19 pages, 1270987 bytes).
 PDF statistics:
- 177 PDF objects out of 1000 (max. 8388607)
- 120 compressed objects within 2 object streams
+ 123 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

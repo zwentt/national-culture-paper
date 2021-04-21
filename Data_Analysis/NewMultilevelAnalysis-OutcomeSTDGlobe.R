@@ -18,37 +18,6 @@ options(scipen=10)
 theme_set(theme_bw())
 
 
-CultureData <- read_dta("/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
-#CultureData <- read_dta("D:/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
-
-filepath <- "/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/"
-
-#Work directory
-setwd(filepath)
-
-
-#Variables 
-hof = c("pdi", "idv", "lto", "ivr", "mas", "uai")
-glo_v = c("guaiv", "gfuov", "gpdiv", "ginscolv", "ghumv", "gperv", "gigrcolv", "ggndv", "gassv")
-glo_p = c("guaip", "gfuop", "gpdip", "ginscolp", "ghump", "gpefp", "gigrcolp", "ggndp", "gassp")
-glo_pc = c("guaip_c", "gfuop_c", "gpdip_c", "ginscolp_c", "ghump_c", "gpefp_c", "gigrcolp_c", "ggndp_c", "gassp_c")
-glo_vc = c("guaiv_c", "gfuov_c", "gpdiv_c", "ginscolv_c", "ghumv_c", "gperv_c", "gigrcolv_c", "ggndv_c", "gassv_c")
-
-#Additional data conditioning
-#firmsize variable log transform then center within cluster
-
-CultureData$firmsize.adj <- log10(CultureData$firmsizecont)
-CultureData$firmsize.adj.cj <- CultureData$firmsize.adj - ave(CultureData$firmsize.adj, CultureData$country)
-
-CultureData$mfr2013lnstd <- (log10(CultureData$mfr2013) - mean(log10(CultureData$mfr2013)))/sd(log10(CultureData$mfr2013))
-
-CultureData$competitive1cj <- CultureData$competitive1 - ave(CultureData$competitive1, CultureData$country, FUN = function(x) mean(x, na.rm=T))
-CultureData$competitive2cj <- CultureData$competitive2 - ave(CultureData$competitive2, CultureData$country, FUN = function(x) mean(x, na.rm=T))
-CultureData$strategycj <- CultureData$strategy - ave(CultureData$strategy, CultureData$country, FUN = function(x) mean(x, na.rm=T))
-
-regionalData <- subset(CultureData, network2x == 0)
-globalData <- subset(CultureData, network2x == 1)
-eachCountry <- subset(CultureData, pickone == 1)
 
 
 
@@ -63,7 +32,7 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 #outcome2.control.brm.fit <- brm(outcome2 ~ mfr2013lnstd + network2xcj + firmsize.adj.cj + (1 | countryx), data = CultureData)
 
-brm.outcome2.model <- outcome2 ~ mfr2013std + firmsize.adj.cj + agility2cj + network2xcj + 
+brm.outcome2.model <- outcome2 ~ mfr2013.z + firmsize.adj.cj + agility2cj + network2xcj + 
                         agility2cj * (cul + network2xcj + strategycj) + 
                         strategycj:agility2cj:cul + agility2cj:network2xcj:cul + strategycj:agility2cj:network2xcj + 
                         (1 + network2xcj + agility2cj | countryx)
@@ -71,7 +40,7 @@ brm.outcome2.model <- outcome2 ~ mfr2013std + firmsize.adj.cj + agility2cj + net
 
 #model estimations 
 for (i in 1:9) {
-  CultureData$cul <- as.numeric(unlist(CultureData[, c(glo_vc[i])]))
+  CultureData$cul <- as.numeric(unlist(CultureData[, c(glo_vz[i])]))
   assign(brm.outcome.fit.names[i+1], brm(brm.outcome2.model, data = CultureData, core = 8, chains = 4, iter = 3000, refresh = 0, control = list(adapt_delta = 0.99)))
   #Give R a break to cool down the CPU
   Sys.sleep(20)
@@ -89,8 +58,8 @@ mcmcReg(list(outcome2.guaiv.brm.fit,
              outcome2.ggndv.brm.fit,
              outcome2.gassv.brm.fit),
         pars = c("b", "sd", "cor", "sigma"),
-        ci = 0.95, format = "latex", caption = "Outcome2 Models - Cross Interaction",
-        file = paste(filepath, "LatexTables/", "outcome2ModelFinal", sep=""), 
+        ci = 0.95, format = "latex", caption = "Outcome2 Models (Z) - Cross Interaction",
+        file = paste(filepath, "LatexTables/", "outcome2ModelFinalZ", sep=""), 
         custom.model.names = c("UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
@@ -105,7 +74,7 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 #outcome2.control.brm.fit <- brm(outcome2 ~ mfr2013lnstd + network2xcj + firmsize.adj.cj + (1 | countryx), data = CultureData)
 
-brm.outcome2.model.regional <- outcome2 ~ mfr2013std + firmsize.adj.cj + agility2cj + 
+brm.outcome2.model.regional <- outcome2 ~ mfr2013.z + firmsize.adj.cj + agility2cj + 
   agility2cj * (cul + strategycj) + strategycj:agility2cj:cul + (1 + agility2cj | countryx)
 
 
