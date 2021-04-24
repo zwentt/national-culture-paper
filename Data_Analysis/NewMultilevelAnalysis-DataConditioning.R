@@ -1,5 +1,17 @@
 #Data Conditioning
-
+library(lmerTest)
+library(haven)
+library(ggplot2)
+library(stargazer)
+library(blme)
+library(xtable)
+library(rstan)
+library(rstantools)
+library(brms)
+library(haven)
+library(StanHeaders)
+library(BayesPostEst)
+library(dplyr)
 
 CultureData <- read_dta("/Users/zwen/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
 #CultureData <- read_dta("D:/Documents/GitHub/national-culture-paper/Data_Analysis/cultureDataFinal.dta")
@@ -26,6 +38,8 @@ CultureData$mfr2013lnstd <- (log10(CultureData$mfr2013) - mean(log10(CultureData
 CultureData$competitive1cj <- CultureData$competitive1 - ave(CultureData$competitive1, CultureData$country, FUN = function(x) mean(x, na.rm=T))
 CultureData$competitive2cj <- CultureData$competitive2 - ave(CultureData$competitive2, CultureData$country, FUN = function(x) mean(x, na.rm=T))
 CultureData$strategycj <- CultureData$strategy - ave(CultureData$strategy, CultureData$country, FUN = function(x) mean(x, na.rm=T))
+CultureData$network4xcj <- CultureData$g1 - ave(CultureData$g1, CultureData$country, FUN = function(x) mean(x, na.rm=T))
+
 
 
 eachCountry <- subset(CultureData, pickone == 1)
