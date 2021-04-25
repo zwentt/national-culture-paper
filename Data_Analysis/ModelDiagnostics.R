@@ -13,8 +13,8 @@ oneStepPPCheck <- function(modelIndex, cultureIndex) {
   cultureName <- glo_names[cultureIndex]
 
   #model <- eval(parse(text = paste(modelClass, ".", cultureDimension, ".brm.fit.t", sep ="")))
-  model <- eval(parse(text = paste(modelClass, ".", cultureDimension, ".brm.fit.t", sep ="")))
-  theTitle <- paste("Posterior Predictive Check", " (", modelName, " [T] on ", cultureName, ")", sep = "")
+  model <- eval(parse(text = paste(modelClass, ".", cultureDimension, ".brm.fit", sep ="")))
+  theTitle <- paste("Posterior Predictive Check", " (", modelName, " [Z] on ", cultureName, ")", sep = "")
   fileNameEnd <- paste(modelClass, "_", cultureDimension,".png", sep="")
   
   pp_check(model, nsamples = 100) + xlim(-4, 4) + 
@@ -22,12 +22,12 @@ oneStepPPCheck <- function(modelIndex, cultureIndex) {
          subtitle = ("Note: Density overlay using 100 posterior samples"))
   ggsave(paste("./Plots/pp_check_default_", fileNameEnd, sep=""), width = 5, height = 5)
   
-   pp_check(model, type = 'stat', stat = 'mean') + xlim(-0.3, 0.3) + 
+   pp_check(model, type = 'stat', stat = 'mean') + 
     labs(title = theTitle,
          subtitle = "Note: How well did Stan capture the mean?")
   ggsave(paste("./Plots/pp_check_mean_", fileNameEnd, sep=""), width = 5, height = 5)
   
-  pp_check(model, type = 'stat', stat = 'sd') + xlim(-1.5, 1.5) + 
+  pp_check(model, type = 'stat', stat = 'sd') + 
     labs(title = theTitle,
          subtitle = "Note: How well did Stan capture the standard deviation?")
   ggsave(paste("./Plots/pp_check_sd_", fileNameEnd, sep=""), width = 5, height = 5)
@@ -110,8 +110,8 @@ looicMatrix <- cbind(looicMatrix.z, looicMatrix.t[, 2:3])
 print(xtable(looicMatrix, type = "latex", caption = "looic Score"), file = "looic_score.tex")
 
 
-
-
+plot(looOutcome)
+ggsave("looOutcome.png")
 
 
 
@@ -121,7 +121,7 @@ print(xtable(looicMatrix, type = "latex", caption = "looic Score"), file = "looi
 
 #looic generator
 R2_Vector.t <- data.frame(matrix(nrow = 10, ncol = 3))
-colnames(R2_Vector.t) <- c("model", "agility.t", "outcome.t")
+colnames(R2_Vector.t) <- c("model", "agility2.t", "outcome2.t")
 
 R2_Vector.t[1, 1] <- "control"
 R2_Vector.t[1, 2] <- bayes_R2(agility2.control.brm.fit.t)[1,1]
@@ -145,7 +145,7 @@ for (modelIndex in 1:2) {
 
 
 R2_Vector.z <- data.frame(matrix(nrow = 10, ncol = 3))
-colnames(R2_Vector.z) <- c("model", "agility.z", "outcome.z")
+colnames(R2_Vector.z) <- c("model", "agility2.z", "outcome2.z")
 
 R2_Vector.z[1, 1] <- "control"
 R2_Vector.z[1, 2] <- bayes_R2(agility2.control.brm.fit)[1,1]
