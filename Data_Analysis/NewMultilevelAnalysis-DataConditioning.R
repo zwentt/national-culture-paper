@@ -66,31 +66,38 @@ regionalData <- subset(CultureData, network2x == 0)
 globalData <- subset(CultureData, network2x == 1)
 
 
-#Correlation Coefficient Matrix 
-stargazer(cor(eachCountry[glo_v]), type = "text", title = "Correlation Coefficients: GLOBE Value Dimensions",
-          out = paste(filepath, "LatexTables/", "globe_v_corr.tex", sep=""))
-
-stargazer(cor(eachCountry[glo_p]), type = "text", title = "Correlation Coefficients: GLOBE Practice Dimensions",
-          out = paste(filepath, "LatexTables/", "globe_p_corr.tex", sep=""))
-
-stargazer(cor(CultureData[c("agility", "agility2", "agilitycj", "agility2cj", "outcome", "outcome2", "outcomecj", "outcome2cj")], use = "na.or.complete"), 
-          type = "text", title = "Correlation Coefficients: Key Variables",
-          out = paste(filepath, "LatexTables/", "key_vars.tex", sep=""))
-
-
-# stargazer(cor(CultureData[c("sensing", "sensing2", "proactive", "proactive2", 
-#                             "flexOutcome","flexOutcome2", "speedOutcome", "speedOutcome2")], 
-#                             use = "na.or.complete"), 
-#           type = "text", title = "Correlation Coefficients: Key Variables",
-#           out = paste(filepath, "LatexTables/", "secondary_vars.tex", sep=""))
-
-
-stargazer(cor(CultureData[c("agility","outcome", "sensing", "proactive", "flexOutcome", "speedOutcome")], use = "na.or.complete"), 
-          type = "text", title = "Correlation Coefficients: Key Variables (Set1)",
-          out = paste(filepath, "LatexTables/", "key_vars_set1.tex", sep=""))
-
-stargazer(cor(CultureData[c("agility2","outcome2", "sensing2", "proactive2", "flexOutcome2", "speedOutcome2")], use = "na.or.complete"), 
-          type = "text", title = "Correlation Coefficients: Key Variables (Set2)",
-          out = paste(filepath, "LatexTables/", "key_vars_set2.tex", sep=""))
+{
+  
+  #Correlation Coefficient Matrix 
+  stargazer(cor(eachCountry[glo_v]), type = "text", title = "Correlation Coefficients: GLOBE Value Dimensions",
+            out = paste(filepath, "LatexTables/", "globe_v_corr.tex", sep=""))
+  
+  stargazer(cor(eachCountry[glo_p]), type = "text", title = "Correlation Coefficients: GLOBE Practice Dimensions",
+            out = paste(filepath, "LatexTables/", "globe_p_corr.tex", sep=""))
+  
+  stargazer(cor(CultureData[c("agility", "agility2", "agilitycj", "agility2cj", "outcome", "outcome2", "outcomecj", "outcome2cj")], use = "na.or.complete"), 
+            type = "text", title = "Correlation Coefficients: Key Variables",
+            out = paste(filepath, "LatexTables/", "key_vars.tex", sep=""))
+  
+  
+  # stargazer(cor(CultureData[c("sensing", "sensing2", "proactive", "proactive2", 
+  #                             "flexOutcome","flexOutcome2", "speedOutcome", "speedOutcome2")], 
+  #                             use = "na.or.complete"), 
+  #           type = "text", title = "Correlation Coefficients: Key Variables",
+  #           out = paste(filepath, "LatexTables/", "secondary_vars.tex", sep=""))
+  
+  
+  stargazer(cor(CultureData[c("agility","outcome", "sensing", "proactive", "flexOutcome", "speedOutcome")], use = "na.or.complete"), 
+            type = "text", title = "Correlation Coefficients: Key Variables (Set1)",
+            out = paste(filepath, "LatexTables/", "key_vars_set1.tex", sep=""))
+  
+  stargazer(cor(CultureData[c("agility2","outcome2", "sensing2", "proactive2", "flexOutcome2", "speedOutcome2")], use = "na.or.complete"), 
+            type = "text", title = "Correlation Coefficients: Key Variables (Set2)",
+            out = paste(filepath, "LatexTables/", "key_vars_set2.tex", sep=""))
+  
+  
+  
+  
+}
 
 
