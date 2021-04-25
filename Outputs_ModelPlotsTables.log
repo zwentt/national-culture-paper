@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  25 APR 2021 02:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  25 APR 2021 17:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -234,35 +234,20 @@ Overfull \hbox (26.96823pt too wide) in paragraph at lines 7--22
 (./Data_Analysis/LatexTables/outcome2FinalZ410.tex)
 (./Data_Analysis/LatexTables/outcome2FinalT4.tex)
 (./Data_Analysis/LatexTables/outcome2FinalT410.tex) [11] [12] [13] [14]
-(./Data_Analysis/Bayes_r2.tex)
-<Data_Analysis/Plots/visual.agility.png, id=60, 2409.0pt x 1806.75pt>
-File: Data_Analysis/Plots/visual.agility.png Graphic file (type png)
-<use Data_Analysis/Plots/visual.agility.png>
-Package pdftex.def Info: Data_Analysis/Plots/visual.agility.png  used on input 
-line 107.
-(pdftex.def)             Requested size: 425.0pt x 318.74988pt.
-<Data_Analysis/Plots/visual.agilityOutcome.png, id=62, 2847.63875pt x 2341.7487
-5pt>
-File: Data_Analysis/Plots/visual.agilityOutcome.png Graphic file (type png)
-<use Data_Analysis/Plots/visual.agilityOutcome.png>
-Package pdftex.def Info: Data_Analysis/Plots/visual.agilityOutcome.png  used on
- input line 112.
-(pdftex.def)             Requested size: 425.0pt x 349.49628pt.
- [15
+(./Data_Analysis/looic_score.tex) (./Data_Analysis/Bayes_r2.tex) [15
 
 
- <./Data_Analysis/Plots/visual.agility.png>]
-[16 <./Data_Analysis/Plots/visual.agilityOutcome.png>]
+]
 (./Outputs_ModelPlotsTables.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1785 strings out of 480608
- 28195 string characters out of 5903631
+ 1775 strings out of 480608
+ 27775 string characters out of 5903631
  344910 words of memory out of 5000000
- 17642 multiletter control sequences out of 15000+600000
+ 17633 multiletter control sequences out of 15000+600000
  537546 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,9n,29p,321b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -279,10 +264,10 @@ xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texli
 ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
 /2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Outputs_ModelPlotsTables.pdf (16 pages, 1260371 bytes).
+Output written on Outputs_ModelPlotsTables.pdf (15 pages, 172373 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
+ 105 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
