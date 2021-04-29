@@ -92,7 +92,7 @@ globalData <- subset(CultureData, network2x == 1)
             out = paste(filepath, "LatexTables/", "key_vars_set1.tex", sep=""))
   
   stargazer(cor(CultureData[c("agility2","outcome2", "sensing2", "proactive2", "flexOutcome2", "speedOutcome2")], use = "na.or.complete"), 
-            type = "text", title = "Correlation Coefficients: Key Variables (Set2)",
+            type = "text", title = "Correlation Coefficients: Sub-dimensions of Key Variables",
             out = paste(filepath, "LatexTables/", "key_vars_set2.tex", sep=""))
   
   
