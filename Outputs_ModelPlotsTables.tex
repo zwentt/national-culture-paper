@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{pdflscape}
 \usepackage{geometry}
+\usepackage{amsmath}
 \geometry{legalpaper, margin=1 in}
 \setlength{\parindent}{0pt}
 
@@ -38,22 +39,48 @@
 \subsection{Models: Agility and National Culture}
 
 
-$$  \textit{agility}_{ij} = \beta_0 + \beta_1 \cdot \textit{network} + \beta_2 \cdot\textit{firmsize} + \beta_3 \cdot\textit{Culture} + \varepsilon_{ij} $$
+\begin{multline*}
+		\textit{Agility}_{ij} = 
+		\beta_0 + 
+		\beta_1 \cdot \textit{Network} + 
+		\beta_2 \cdot \textit{Competitive Pressure} + 
+		\beta_3 \cdot \textit{Competitive Pressure} \times \textit{Network} + \\
+		\delta_1\cdot \textit{Firm Size} + 
+		\delta_2\cdot \textit{Strategic Orientation} + 		
+		\varepsilon_{ij}		
+\end{multline*}
+
+$$ \beta_0 = \gamma_{00} + \gamma_{01}\cdot \textit{Mfr2013} + u_{0}$$
+$$ \beta_1 = \gamma_{10} + \gamma_{11}\cdot \textit{Culture} + u_{1}$$
+$$ \beta_2 = \gamma_{20} + \gamma_{21}\cdot \textit{Culture} + u_{2}$$
+$$ \beta_3 = \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}$$
 
 
-$$ \beta_0 = \gamma_{00} + \gamma_{00}\cdot \textit{mfr2013} + u_{00}$$
-
-$$ \beta_1 = \gamma_{01} + \gamma_{01}\cdot \textit{Culture} + u_{01}$$
-
-
-
-
-
-brm.agility.model <- proactive2 ~ mfr2013lnstd + network2xcj*firmsize.adj.cj*cul + (1 + network2xcj | countryx)
 
 
 
 \subsection{Models: Agility Effectiveness and National Culture}
+
+
+\begin{multline*}
+	\textit{Agility}_{ij} = 
+	\beta_0 + 
+	\beta_1 \cdot \textit{Network} + 
+	\beta_2 \cdot \textit{Agility} + 
+	\beta_3 \cdot \textit{Agility} \times \textit{Network} + \\
+	\delta_1\cdot \textit{Firm Size} + 
+	\delta_2\cdot \textit{Strategic Orientation} + 		
+	\varepsilon_{ij}		
+\end{multline*}
+
+$$ \beta_0 = \gamma_{00} + \gamma_{01}\cdot \textit{Mfr2013} + u_{0}$$
+$$ \beta_1 = \gamma_{10} + \gamma_{11}\cdot \textit{Culture} + u_{1}$$
+$$ \beta_2 = \gamma_{20} + \gamma_{21}\cdot \textit{Culture} + u_{2}$$
+$$ \beta_3 = \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}$$
+
+
+
+
 
 
 \pagebreak

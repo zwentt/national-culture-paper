@@ -1,88 +1,145 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  28 APR 2021 16:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.5)  29 APR 2021 00:14
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
-**Outputs_ModelPlotsTables.tex
-(./Outputs_ModelPlotsTables.tex
-LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06>
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+**./Outputs_ModelPlotsTables.tex
+(Outputs_ModelPlotsTables.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-01-09> xparse <2020-03-03>
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count167
-\c@section=\count168
-\c@subsection=\count169
-\c@subsubsection=\count170
-\c@paragraph=\count171
-\c@subparagraph=\count172
-\c@figure=\count173
-\c@table=\count174
+\c@part=\count177
+\c@section=\count178
+\c@subsection=\count179
+\c@subsubsection=\count180
+\c@paragraph=\count181
+\c@subparagraph=\count182
+\c@figure=\count183
+\c@table=\count184
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen134
+\bibindent=\dimen138
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 105.
 
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen135
-\Gin@req@width=\dimen136
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
-
-(/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/lscape.sty
-Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count175
-\Gm@cntv=\count176
-\c@Gm@tempcnt=\count177
-\Gm@bindingoffset=\dimen137
-\Gm@wd@mp=\dimen138
-\Gm@odd@mp=\dimen139
-\Gm@even@mp=\dimen140
-\Gm@layoutwidth=\dimen141
-\Gm@layoutheight=\dimen142
-\Gm@layouthoffset=\dimen143
-\Gm@layoutvoffset=\dimen144
+\Gm@cnth=\count185
+\Gm@cntv=\count186
+\c@Gm@tempcnt=\count187
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks16
+
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip49
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen149
+))
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen150
 )
-(/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
-File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count178
-\l__pdf_internal_box=\box45
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
 )
-(./Outputs_ModelPlotsTables.aux
+\inf@bad=\count188
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count189
+\leftroot@=\count190
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count191
+\DOTSCASE@=\count192
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen151
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count193
+\c@MaxMatrixCols=\count194
+\dotsspace@=\muskip16
+\c@parentequation=\count195
+\dspbrk@lvl=\count196
+\tag@help=\toks18
+\row@=\count197
+\column@=\count198
+\maxfields@=\count199
+\andhelp@=\toks19
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks20
+\multlinegap=\skip50
+\multlinetaggap=\skip51
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count266
+\l__pdf_internal_box=\box49
+) (Outputs_ModelPlotsTables.aux
 
 LaTeX Warning: Label `' multiply defined.
 
@@ -125,42 +182,74 @@ LaTeX Warning: Label `table:coefficients' multiply defined.
 )
 \openout1 = `Outputs_ModelPlotsTables.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
- (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count179
-\scratchdimen=\dimen145
-\scratchbox=\box46
-\nofMPsegments=\count180
-\nofMParguments=\count181
-\everyMPshowfont=\toks17
-\MPscratchCnt=\count182
-\MPscratchDim=\dimen146
-\MPnumerator=\count183
-\makeMPintoPDFobject=\count184
-\everyMPtoPDFconversion=\toks18
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+\scratchcounter=\count267
+\scratchdimen=\dimen158
+\scratchbox=\box50
+\nofMPsegments=\count268
+\nofMParguments=\count269
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count270
+\MPscratchDim=\dimen159
+\MPnumerator=\count271
+\makeMPintoPDFobject=\count272
+\everyMPtoPDFconversion=\toks23
+)
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.s
+ty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+))
+(C:\Users\zwena\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-
-(/usr/local/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+)
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -195,257 +284,248 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 14.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 14.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 14.
-(./Data_Analysis/LatexTables/globe_v_corr.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 7.
-)
-(./Data_Analysis/LatexTables/globe_p_corr.tex)
-(./Data_Analysis/LatexTables/key_vars.tex
+(Data_Analysis/LatexTables/globe_v_corr.tex)
+(Data_Analysis/LatexTables/globe_p_corr.tex)
+(Data_Analysis/LatexTables/key_vars.tex
 Overfull \hbox (26.96823pt too wide) in paragraph at lines 7--22
  [][] 
  []
 
-) (./Data_Analysis/LatexTables/key_vars_set1.tex)
-(./Data_Analysis/LatexTables/key_vars_set2.tex) [1
+) (Data_Analysis/LatexTables/key_vars_set1.tex)
+(Data_Analysis/LatexTables/key_vars_set2.tex) [1
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-
-(./Data_Analysis/LatexTables/nullModels.tex)
-(./Data_Analysis/LatexTables/nullModels2.tex) [4] [5
-
-
-]
-(./Data_Analysis/LatexTables/agility2FinalZ4.tex)
-(./Data_Analysis/LatexTables/agility2FinalZ410.tex)
-(./Data_Analysis/LatexTables/agility2FinalT4.tex)
-(./Data_Analysis/LatexTables/agility2FinalT410.tex) [6] [7] [8] [9] [10
+{C:/Users/zwena/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2] [3]
+(Data_Analysis/LatexTables/nullModels.tex)
+(Data_Analysis/LatexTables/nullModels2.tex) [4] [5
 
 
 ]
-(./Data_Analysis/LatexTables/outcome2FinalZ4.tex)
-(./Data_Analysis/LatexTables/outcome2FinalZ410.tex)
-(./Data_Analysis/LatexTables/outcome2FinalT4.tex)
-(./Data_Analysis/LatexTables/outcome2FinalT410.tex) [11] [12] [13] [14]
-(./Data_Analysis/looic_score.tex) (./Data_Analysis/Bayes_r2.tex) [15
+(Data_Analysis/LatexTables/agility2FinalZ4.tex)
+(Data_Analysis/LatexTables/agility2FinalZ410.tex)
+(Data_Analysis/LatexTables/agility2FinalT4.tex)
+(Data_Analysis/LatexTables/agility2FinalT410.tex) [6] [7] [8] [9] [10
+
+
+]
+(Data_Analysis/LatexTables/outcome2FinalZ4.tex)
+(Data_Analysis/LatexTables/outcome2FinalZ410.tex)
+(Data_Analysis/LatexTables/outcome2FinalT4.tex)
+(Data_Analysis/LatexTables/outcome2FinalT410.tex) [11] [12] [13] [14]
+(Data_Analysis/looic_score.tex) (Data_Analysis/Bayes_r2.tex) [15
 
 
 ]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.png, id
-=64, 1505.625pt x 1505.625pt>
+=63, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.pn
 g Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.png
 >
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_defaul
-t_agility2_guaiv.png  used on input line 105.
+t_agility2_guaiv.png  used on input line 132.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.png, id
-=66, 1505.625pt x 1505.625pt>
+=65, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.pn
 g Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.png
 >
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_defaul
-t_agility2_guaiv.png  used on input line 107.
+t_agility2_guaiv.png  used on input line 134.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
  [16 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.
 png> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.
 png>]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.png, id
-=72, 1505.625pt x 1505.625pt>
+=71, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.pn
 g Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.png
 >
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_defaul
-t_outcome2_guaiv.png  used on input line 116.
+t_outcome2_guaiv.png  used on input line 143.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.png, id
-=73, 1505.625pt x 1505.625pt>
+=72, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.pn
 g Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.png
 >
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_defaul
-t_outcome2_guaiv.png  used on input line 118.
+t_outcome2_guaiv.png  used on input line 145.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-
-[17 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.p
-ng> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.p
-ng>]
-<Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png, id=79
+ [17 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.
+png> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.
+png>]
+<Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png, id=78
 , 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png G
 raphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_a
-gility2_guaiv.png  used on input line 125.
+gility2_guaiv.png  used on input line 152.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-<Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png, id=80
+<Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png, id=79
 , 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png G
 raphic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_a
-gility2_guaiv.png  used on input line 127.
+gility2_guaiv.png  used on input line 154.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-<Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png, id=81
+<Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png, id=80
 , 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png G
 raphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_o
-utcome2_guaiv.png  used on input line 132.
+utcome2_guaiv.png  used on input line 159.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [18 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png
-> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png>]
-<Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png, id=87
+
+[18 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png>
+ <./Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png>]
+<Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png, id=86
 , 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png G
 raphic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_o
-utcome2_guaiv.png  used on input line 134.
+utcome2_guaiv.png  used on input line 161.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [19 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png
-> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png>]
-<Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png, id=94, 
+
+[19 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png>
+ <./Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png>]
+<Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png, id=93, 
 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png Gra
 phic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agi
-lity2_guaiv.png  used on input line 140.
+lity2_guaiv.png  used on input line 167.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-<Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png, id=95, 
+<Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png, id=94, 
 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png Gra
 phic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agi
-lity2_guaiv.png  used on input line 142.
+lity2_guaiv.png  used on input line 169.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [20 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png> 
-<./Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png>]
-<Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png, id=101,
+
+[20 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png> <
+./Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png>]
+<Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png, id=100,
  1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png Gra
 phic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_out
-come2_guaiv.png  used on input line 148.
+come2_guaiv.png  used on input line 175.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-<Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png, id=102,
+<Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png, id=101,
  1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png Gra
 phic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_out
-come2_guaiv.png  used on input line 150.
+come2_guaiv.png  used on input line 177.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 
 [21 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png> <
 ./Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png>]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_guaiv.p
-ng, id=108, 1505.625pt x 1505.625pt>
+ng, id=107, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_gu
 aiv.png Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_gua
 iv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_error_
-scatter_agility2_guaiv.png  used on input line 158.
+scatter_agility2_guaiv.png  used on input line 185.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_outcome2_guaiv.p
-ng, id=109, 1505.625pt x 1505.625pt>
+ng, id=108, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_outcome2_gu
 aiv.png Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_outcome2_gua
 iv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_error_
-scatter_outcome2_guaiv.png  used on input line 160.
+scatter_outcome2_guaiv.png  used on input line 187.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 
 [22 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_g
 uaiv.png> <./Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_outc
 ome2_guaiv.png>]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guaiv.png, 
-id=115, 1505.625pt x 1505.625pt>
+id=114, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guaiv.
 png Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guaiv.p
 ng>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_interv
-als_agility2_guaiv.png  used on input line 166.
+als_agility2_guaiv.png  used on input line 193.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_outcome2_guaiv.png, 
-id=116, 1505.625pt x 1505.625pt>
+id=115, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_outcome2_guaiv.
 png Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_outcome2_guaiv.p
 ng>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_interv
-als_outcome2_guaiv.png  used on input line 168.
+als_outcome2_guaiv.png  used on input line 195.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
  [23 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guai
 v.png> <./Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_outcome2_gu
 aiv.png>]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.png, id=1
-22, 1505.625pt x 1505.625pt>
+21, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.png 
 Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_
-agility2_guaiv.png  used on input line 175.
+agility2_guaiv.png  used on input line 202.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_outcome2_guaiv.png, id=1
-23, 1505.625pt x 1505.625pt>
+22, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_outcome2_guaiv.png 
 Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_
-outcome2_guaiv.png  used on input line 177.
+outcome2_guaiv.png  used on input line 204.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
  [24 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.pn
 g> <./Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_outcome2_guaiv.png>
-] (./Outputs_ModelPlotsTables.aux)
+] (Outputs_ModelPlotsTables.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 1880 strings out of 480608
- 35199 string characters out of 5903631
- 344910 words of memory out of 5000000
- 17723 multiletter control sequences out of 15000+600000
- 537546 words of font info for 41 fonts, out of 8000000 for 9000
+ 3034 strings out of 479618
+ 54040 string characters out of 2865027
+ 420325 words of memory out of 3000000
+ 20107 multiletter control sequences out of 15000+200000
+ 410464 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,9n,29p,321b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
-sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
-ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
-al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Outputs_ModelPlotsTables.pdf (24 pages, 4209232 bytes).
+ 72i,10n,78p,323b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/zwena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmbx10.pfb><C:/Users/zwena/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb><C:/Users/zwena/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmbx9.pfb><C:/Users/zwena/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/zwena/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/zwena/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/zwena/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/zwena/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/
+zwena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:
+/Users/zwena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Users/zwena/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Users/zwena/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmsy5.pfb><C:/Users/zwena/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb><C:/Users/zwena/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Outputs_ModelPlotsTables.pdf (24 pages, 4227202 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+ 172 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
