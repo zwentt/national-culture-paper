@@ -29,7 +29,7 @@ fit.outcome2.null <- brm(outcome2.null, data = CultureData, refresh = 0, core = 
 mcmcReg(list(fit.agility2.null, 
              fit.outcome2.null),
         pars = c("b", "sd", "sigma"), 
-        ci = 0.95, format = "latex", caption = "Null Models (Set 2)",
+        ci = 0.95, format = "latex", caption = "Null Models",
         file = paste(filepath, "LatexTables/", "nullModels2", sep=""), regex = TRUE,
         custom.model.names = c("Agility Practices2",
                                "Agility Outcome2"))

@@ -75,7 +75,7 @@ globalData <- subset(CultureData, network2x == 1)
   stargazer(cor(eachCountry[glo_p]), type = "text", title = "Correlation Coefficients: GLOBE Practice Dimensions",
             out = paste(filepath, "LatexTables/", "globe_p_corr.tex", sep=""))
   
-  stargazer(cor(CultureData[c("agility", "agility2", "agilitycj", "agility2cj", "outcome", "outcome2", "outcomecj", "outcome2cj")], use = "na.or.complete"), 
+  stargazer(cor(CultureData[c("agility2", "outcome2", "strategy", "competitive1", "network4xcj")], use = "na.or.complete"), 
             type = "text", title = "Correlation Coefficients: Key Variables",
             out = paste(filepath, "LatexTables/", "key_vars.tex", sep=""))
   
