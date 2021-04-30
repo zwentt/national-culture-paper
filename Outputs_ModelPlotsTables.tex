@@ -50,10 +50,12 @@
 		\varepsilon_{ij}		
 \end{multline*}
 
-$$ \beta_0 = \gamma_{00} + \gamma_{01}\cdot \textit{Mfr2013} + u_{0}$$
-$$ \beta_1 = \gamma_{10} + \gamma_{11}\cdot \textit{Culture} + u_{1}$$
-$$ \beta_2 = \gamma_{20} + \gamma_{21}\cdot \textit{Culture} + u_{2}$$
-$$ \beta_3 = \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}$$
+\begin{align*}
+	\beta_0 &= \gamma_{00} + \gamma_{01}\cdot \textit{Mfr2013}  + \gamma_{02}\cdot \textit{Culture} + u_{0} \\
+	\beta_1 &= \gamma_{10} + \gamma_{11}\cdot \textit{Culture} + u_{1} \\
+	\beta_2 &= \gamma_{20} + \gamma_{21}\cdot \textit{Culture} + u_{2} \\
+	\beta_3 &= \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}
+\end{align*}
 
 
 
@@ -62,8 +64,10 @@ $$ \beta_3 = \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}$$
 \subsection{Models: Agility Effectiveness and National Culture}
 
 
+
+
 \begin{multline*}
-	\textit{Agility}_{ij} = 
+	\textit{Outcome}_{ij} = 
 	\beta_0 + 
 	\beta_1 \cdot \textit{Network} + 
 	\beta_2 \cdot \textit{Agility} + 
@@ -73,12 +77,13 @@ $$ \beta_3 = \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}$$
 	\varepsilon_{ij}		
 \end{multline*}
 
-$$ \beta_0 = \gamma_{00} + \gamma_{01}\cdot \textit{Mfr2013} + u_{0}$$
-$$ \beta_1 = \gamma_{10} + \gamma_{11}\cdot \textit{Culture} + u_{1}$$
-$$ \beta_2 = \gamma_{20} + \gamma_{21}\cdot \textit{Culture} + u_{2}$$
-$$ \beta_3 = \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}$$
 
-
+\begin{align*}
+\beta_0 &= \gamma_{00} + \gamma_{01}\cdot \textit{Mfr2013}  + \gamma_{02}\cdot \textit{Culture} + u_{0} \\
+\beta_1 &= \gamma_{10} + \gamma_{11}\cdot \textit{Culture} + u_{1} \\
+\beta_2 &= \gamma_{20} + \gamma_{21}\cdot \textit{Culture} + u_{2} \\
+\beta_3 &= \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}
+\end{align*}
 
 
 
@@ -103,34 +108,21 @@ $$ \beta_3 = \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}$$
 \subsubsection{Agility Models}
 
 \begin{landscape}
-	\input{Data_Analysis/LatexTables/agility2FinalZ4.tex}
-	\input{Data_Analysis/LatexTables/agility2FinalZ410.tex}
-	\input{Data_Analysis/LatexTables/agility2FinalT4.tex}
-	\input{Data_Analysis/LatexTables/agility2FinalT410.tex}
-	
-	
-	\input{Data_Analysis/LatexTables/agility2FinalZ4-3way.tex}
-	
-	\input{Data_Analysis/LatexTables/agility2FinalZ410-3way.tex}
-	
+	%\input{Data_Analysis/LatexTables/agility2FinalZ4-3way.tex}
+	%\input{Data_Analysis/LatexTables/agility2FinalZ410-3way.tex}
 	\input{Data_Analysis/LatexTables/agility2FinalZ2-3way.tex}
-
 	\input{Data_Analysis/LatexTables/agility2FinalZ210-3way.tex}
-	
-	
-	\input{Data_Analysis/LatexTables/outcome2FinalZ4-3way.tex}
-	\input{Data_Analysis/LatexTables/outcome2FinalZ410-3way.tex}
-	
+
 \end{landscape}
 
 
 \subsubsection{Outcome Models}
 
 \begin{landscape}
-	\input{Data_Analysis/LatexTables/outcome2FinalZ4.tex}
-	\input{Data_Analysis/LatexTables/outcome2FinalZ410.tex}
-	\input{Data_Analysis/LatexTables/outcome2FinalT4.tex}
-	\input{Data_Analysis/LatexTables/outcome2FinalT410.tex}
+	%\input{Data_Analysis/LatexTables/outcome2FinalZ2-3way.tex}
+	\input{Data_Analysis/LatexTables/outcome2FinalT2-3way.tex}
+	%\input{Data_Analysis/LatexTables/outcome2FinalZ210-3way.tex}
+	\input{Data_Analysis/LatexTables/outcome2FinalT210-3way.tex}
 \end{landscape}
 
 
@@ -138,7 +130,12 @@ $$ \beta_3 = \gamma_{30} + \gamma_{31}\cdot \textit{Culture} + u_{3}$$
 \section{Model Fit and Diagnostic}
 
 \input{Data_Analysis/looic_score.tex}
+\input{Data_Analysis/looic_score_3way.tex}
+
+\pagebreak
+
 \input{Data_Analysis/Bayes_r2.tex}
+\input{Data_Analysis/Bayes_r2_3way.tex}
 
 \pagebreak
 

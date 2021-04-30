@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  29 APR 2021 09:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  29 APR 2021 23:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -147,6 +147,18 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `table:coefficients' multiply defined.
+
+
+LaTeX Warning: Label `table:coefficients' multiply defined.
+
+
+LaTeX Warning: Label `table:coefficients' multiply defined.
+
+
+LaTeX Warning: Label `table:coefficients' multiply defined.
+
 )
 \openout1 = `Outputs_ModelPlotsTables.aux'.
 
@@ -255,204 +267,193 @@ e
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 (./Data_Analysis/LatexTables/nullModels2.tex) [3]
-(./Data_Analysis/LatexTables/agility2FinalZ4.tex)
-(./Data_Analysis/LatexTables/agility2FinalZ410.tex)
-(./Data_Analysis/LatexTables/agility2FinalT4.tex)
-(./Data_Analysis/LatexTables/agility2FinalT410.tex)
-(./Data_Analysis/LatexTables/agility2FinalZ4-3way.tex)
-(./Data_Analysis/LatexTables/agility2FinalZ410-3way.tex)
 (./Data_Analysis/LatexTables/agility2FinalZ2-3way.tex)
-(./Data_Analysis/LatexTables/agility2FinalZ210-3way.tex)
-(./Data_Analysis/LatexTables/outcome2FinalZ4-3way.tex)
-(./Data_Analysis/LatexTables/outcome2FinalZ410-3way.tex) [4] [5] [6] [7]
-[8] [9] [10] [11] [12] [13] [14
+(./Data_Analysis/LatexTables/agility2FinalZ210-3way.tex) [4] [5] [6
 
 
 ]
-(./Data_Analysis/LatexTables/outcome2FinalZ4.tex)
-(./Data_Analysis/LatexTables/outcome2FinalZ410.tex)
-(./Data_Analysis/LatexTables/outcome2FinalT4.tex)
-(./Data_Analysis/LatexTables/outcome2FinalT410.tex) [15] [16] [17] [18]
-(./Data_Analysis/looic_score.tex) (./Data_Analysis/Bayes_r2.tex) [19
+(./Data_Analysis/LatexTables/outcome2FinalT2-3way.tex)
+(./Data_Analysis/LatexTables/outcome2FinalT210-3way.tex) [7] [8]
+(./Data_Analysis/looic_score.tex) (./Data_Analysis/looic_score_3way.tex)
+[9
 
 
-]
+] (./Data_Analysis/Bayes_r2.tex) (./Data_Analysis/Bayes_r2_3way.tex) [10]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.png, id
-=77, 1505.625pt x 1505.625pt>
+=47, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.pn
 g Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.png
 >
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_defaul
-t_agility2_guaiv.png  used on input line 146.
+t_agility2_guaiv.png  used on input line 143.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.png, id
-=79, 1505.625pt x 1505.625pt>
+=49, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.pn
 g Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.png
 >
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_defaul
-t_agility2_guaiv.png  used on input line 148.
+t_agility2_guaiv.png  used on input line 145.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [20 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.
-png> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.
-png>]
+
+[11 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_default_agility2_guaiv.p
+ng> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_default_agility2_guaiv.p
+ng>]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.png, id
-=85, 1505.625pt x 1505.625pt>
+=55, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.pn
 g Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.png
 >
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_defaul
-t_outcome2_guaiv.png  used on input line 157.
+t_outcome2_guaiv.png  used on input line 154.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.png, id
-=86, 1505.625pt x 1505.625pt>
+=56, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.pn
 g Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.png
 >
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_defaul
-t_outcome2_guaiv.png  used on input line 159.
+t_outcome2_guaiv.png  used on input line 156.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-
-[21 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.p
-ng> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.p
-ng>]
-<Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png, id=92
+ [12 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_default_outcome2_guaiv.
+png> <./Data_Analysis/Plots/pp_checks_z_family/pp_check_default_outcome2_guaiv.
+png>]
+<Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png, id=62
 , 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png G
 raphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_a
-gility2_guaiv.png  used on input line 166.
+gility2_guaiv.png  used on input line 163.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-<Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png, id=93
+<Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png, id=63
 , 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png G
 raphic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_a
-gility2_guaiv.png  used on input line 168.
+gility2_guaiv.png  used on input line 165.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-<Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png, id=94
+<Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png, id=64
 , 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png G
 raphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_o
-utcome2_guaiv.png  used on input line 173.
+utcome2_guaiv.png  used on input line 170.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [22 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png
+ [13 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_agility2_guaiv.png
 > <./Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_agility2_guaiv.png>]
-<Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png, id=10
-0, 1505.625pt x 1505.625pt>
+<Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png, id=71
+, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png G
 raphic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_o
-utcome2_guaiv.png  used on input line 175.
+utcome2_guaiv.png  used on input line 172.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [23 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png
+ [14 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_mean_outcome2_guaiv.png
 > <./Data_Analysis/Plots/pp_checks_z_family/pp_check_mean_outcome2_guaiv.png>]
-<Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png, id=106,
- 1505.625pt x 1505.625pt>
+<Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png, id=77, 
+1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png Gra
 phic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agi
-lity2_guaiv.png  used on input line 181.
+lity2_guaiv.png  used on input line 178.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-<Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png, id=107,
- 1505.625pt x 1505.625pt>
+<Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png, id=78, 
+1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png Gra
 phic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agi
-lity2_guaiv.png  used on input line 183.
+lity2_guaiv.png  used on input line 180.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [24 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png> 
+ [15 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_agility2_guaiv.png> 
 <./Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_agility2_guaiv.png>]
-<Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png, id=113,
- 1505.625pt x 1505.625pt>
+<Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png, id=84, 
+1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png Gra
 phic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_out
-come2_guaiv.png  used on input line 189.
+come2_guaiv.png  used on input line 186.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-<Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png, id=114,
- 1505.625pt x 1505.625pt>
+<Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png, id=85, 
+1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png Gra
 phic file (type png)
 <use Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_out
-come2_guaiv.png  used on input line 191.
+come2_guaiv.png  used on input line 188.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
-
-[25 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png> <
-./Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png>]
+ [16 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_sd_outcome2_guaiv.png> 
+<./Data_Analysis/Plots/pp_checks_z_family/pp_check_sd_outcome2_guaiv.png>]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_guaiv.p
-ng, id=121, 1505.625pt x 1505.625pt>
+ng, id=91, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_gu
 aiv.png Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_gua
 iv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_error_
-scatter_agility2_guaiv.png  used on input line 199.
+scatter_agility2_guaiv.png  used on input line 196.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_outcome2_guaiv.p
-ng, id=122, 1505.625pt x 1505.625pt>
+ng, id=92, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_outcome2_gu
 aiv.png Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_outcome2_gua
 iv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_error_
-scatter_outcome2_guaiv.png  used on input line 201.
+scatter_outcome2_guaiv.png  used on input line 198.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 
-[26 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_g
+[17 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_agility2_g
 uaiv.png> <./Data_Analysis/Plots/pp_checks_t_family/pp_check_error_scatter_outc
 ome2_guaiv.png>]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guaiv.png, 
-id=128, 1505.625pt x 1505.625pt>
+id=98, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guaiv.
 png Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guaiv.p
 ng>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_interv
-als_agility2_guaiv.png  used on input line 207.
+als_agility2_guaiv.png  used on input line 204.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_outcome2_guaiv.png, 
-id=129, 1505.625pt x 1505.625pt>
+id=99, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_outcome2_guaiv.
 png Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_outcome2_guaiv.p
 ng>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_interv
-als_outcome2_guaiv.png  used on input line 209.
+als_outcome2_guaiv.png  used on input line 206.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [27 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guai
+ [18 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_agility2_guai
 v.png> <./Data_Analysis/Plots/pp_checks_t_family/pp_check_intervals_outcome2_gu
 aiv.png>]
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.png, id=1
-35, 1505.625pt x 1505.625pt>
+05, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.png 
 Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_
-agility2_guaiv.png  used on input line 216.
+agility2_guaiv.png  used on input line 213.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
 <Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_outcome2_guaiv.png, id=1
-36, 1505.625pt x 1505.625pt>
+06, 1505.625pt x 1505.625pt>
 File: Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_outcome2_guaiv.png 
 Graphic file (type png)
 <use Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_outcome2_guaiv.png>
 Package pdftex.def Info: Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_
-outcome2_guaiv.png  used on input line 218.
+outcome2_guaiv.png  used on input line 215.
 (pdftex.def)             Requested size: 328.82707pt x 328.82626pt.
- [28 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.pn
+ [19 <./Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_agility2_guaiv.pn
 g> <./Data_Analysis/Plots/pp_checks_t_family/pp_check_x_cul_outcome2_guaiv.png>
 ] (./Outputs_ModelPlotsTables.aux)
 
@@ -460,10 +461,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2943 strings out of 480608
- 50495 string characters out of 5903631
- 496591 words of memory out of 5000000
- 18729 multiletter control sequences out of 15000+600000
+ 2911 strings out of 480608
+ 49123 string characters out of 5903631
+ 325508 words of memory out of 5000000
+ 18721 multiletter control sequences out of 15000+600000
  539372 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,10n,29p,333b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -475,16 +476,15 @@ sr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
 /local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
 ocal/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
 al/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local
-/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texli
-ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
-e/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Outputs_ModelPlotsTables.pdf (28 pages, 4226497 bytes).
+/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/te
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texli
+ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
+/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Outputs_ModelPlotsTables.pdf (19 pages, 4190962 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
+ 155 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

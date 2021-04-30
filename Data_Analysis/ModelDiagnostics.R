@@ -13,8 +13,8 @@ oneStepPPCheck <- function(modelIndex, cultureIndex) {
   cultureName <- glo_names[cultureIndex]
 
   #model <- eval(parse(text = paste(modelClass, ".", cultureDimension, ".brm.fit.t", sep ="")))
-  model <- eval(parse(text = paste(modelClass, ".", cultureDimension, ".brm.fit", sep ="")))
-  theTitle <- paste("Posterior Predictive Check", " (", modelName, " [Z] on ", cultureName, ")", sep = "")
+  model <- eval(parse(text = paste(modelClass, ".", cultureDimension, ".brm.fit.3way.t", sep ="")))
+  theTitle <- paste("Posterior Predictive Check", " (", modelName, " [T] on ", cultureName, ")", sep = "")
   fileNameEnd <- paste(modelClass, "_", cultureDimension,".png", sep="")
   
   pp_check(model, nsamples = 100) + xlim(-4, 4) + 
@@ -49,7 +49,7 @@ oneStepPPCheck <- function(modelIndex, cultureIndex) {
   
 }
 
-for (modelIndex in 1:2) {
+for (modelIndex in 2:2) {
   for (cultureIndex in 1:9) {
     print(cultureIndex)
     oneStepPPCheck(modelIndex = modelIndex, cultureIndex = cultureIndex)
@@ -61,15 +61,15 @@ for (modelIndex in 1:2) {
 #Loo
 
 looicMatrix.t <- data.frame(matrix(nrow = 10, ncol = 3))
-colnames(looicMatrix.t) <- c("model", "agility2.t", "outcome2.t")
+colnames(looicMatrix.t) <- c("model", "agility2.z.3way", "outcome2.t.3way")
 
 looicMatrix.t[1, 1] <- "control"
-looicMatrix.t[1, 2] <- loo(agility2.control.brm.fit.t, reloo = TRUE)$estimates[3, 1]
-looicMatrix.t[1, 3] <- loo(outcome2.control.brm.fit.t, reloo = TRUE)$estimates[3, 1]
+looicMatrix.t[1, 2] <- loo(agility2.control.brm.fit.3way, reloo = TRUE)$estimates[3, 1]
+looicMatrix.t[1, 3] <- loo(outcome2.control.brm.fit.3way.t, reloo = TRUE)$estimates[3, 1]
 
-for (modelIndex in 1:2) {
+for (modelIndex in 1:1) {
   for (cultureIndex in 1:9) {
-    modelNameString <- paste(models[modelIndex], ".", glo_v[cultureIndex], ".brm.fit.t", sep ="")
+    modelNameString <- paste(models[modelIndex], ".", glo_v[cultureIndex], ".brm.fit.3way", sep ="")
     print(modelNameString)
     model <- eval(parse(text = modelNameString))
     looOutcome <- loo(model, reloo = TRUE)
@@ -82,37 +82,41 @@ for (modelIndex in 1:2) {
   }
 }
 
-
-looicMatrix.z <- data.frame(matrix(nrow = 10, ncol = 3))
-colnames(looicMatrix.z) <- c("model", "agility2.z", "outcome2.z")
-
-looicMatrix.z[1, 1] <- "control"
-looicMatrix.z[1, 2] <- loo(agility2.control.brm.fit, reloo = TRUE)$estimates[3, 1]
-looicMatrix.z[1, 3] <- loo(outcome2.control.brm.fit, reloo = TRUE)$estimates[3, 1]
-
-for (modelIndex in 1:2) {
-  for (cultureIndex in 1:9) {
-    modelNameString <- paste(models[modelIndex], ".", glo_v[cultureIndex], ".brm.fit", sep ="")
-    print(modelNameString)
-    model <- eval(parse(text = modelNameString))
-    looOutcome <- loo(model, reloo = TRUE)
-    #plot(looOutcome)
-    #ggsave(paste("./Plots/pp_check_psis_", modelNameString, ".png", sep = ""), width = 5, height = 5)
-    
-    looicMatrix.z[cultureIndex + 1, 1] <- glo_v[cultureIndex]
-    looicMatrix.z[cultureIndex + 1, 1 + modelIndex] <- looOutcome$estimates[3,1]
-    
+# Do not run this section of code. 
+{
+  
+  
+  looicMatrix.z <- data.frame(matrix(nrow = 10, ncol = 3))
+  colnames(looicMatrix.z) <- c("model", "agility2.z", "outcome2.z")
+  
+  looicMatrix.z[1, 1] <- "control"
+  looicMatrix.z[1, 2] <- loo(agility2.control.brm.fit, reloo = TRUE)$estimates[3, 1]
+  looicMatrix.z[1, 3] <- loo(outcome2.control.brm.fit, reloo = TRUE)$estimates[3, 1]
+  
+  for (modelIndex in 1:2) {
+    for (cultureIndex in 1:9) {
+      modelNameString <- paste(models[modelIndex], ".", glo_v[cultureIndex], ".brm.fit", sep ="")
+      print(modelNameString)
+      model <- eval(parse(text = modelNameString))
+      looOutcome <- loo(model, reloo = TRUE)
+      #plot(looOutcome)
+      #ggsave(paste("./Plots/pp_check_psis_", modelNameString, ".png", sep = ""), width = 5, height = 5)
+      
+      looicMatrix.z[cultureIndex + 1, 1] <- glo_v[cultureIndex]
+      looicMatrix.z[cultureIndex + 1, 1 + modelIndex] <- looOutcome$estimates[3,1]
+      
+    }
   }
+  
+  
+  looicMatrix <- cbind(looicMatrix.z, looicMatrix.t[, 2:3])
+  print(xtable(looicMatrix, type = "latex", caption = "looic Score"), file = "looic_score.tex")
+  
+  
 }
 
 
-looicMatrix <- cbind(looicMatrix.z, looicMatrix.t[, 2:3])
-print(xtable(looicMatrix, type = "latex", caption = "looic Score"), file = "looic_score.tex")
-
-
-plot(looOutcome)
-ggsave("looOutcome.png")
-
+print(xtable(looicMatrix.t, type = "latex", caption = "looic Score - Three-way Models"), file = "looic_score_3way.tex")
 
 
 
@@ -120,52 +124,56 @@ ggsave("looOutcome.png")
 
 
 #looic generator
-R2_Vector.t <- data.frame(matrix(nrow = 10, ncol = 3))
-colnames(R2_Vector.t) <- c("model", "agility2.t", "outcome2.t")
+R2_Vector <- data.frame(matrix(nrow = 10, ncol = 3))
+colnames(R2_Vector) <- c("model", "agility2.z", "outcome2.t")
 
-R2_Vector.t[1, 1] <- "control"
-R2_Vector.t[1, 2] <- bayes_R2(agility2.control.brm.fit.t)[1,1]
-R2_Vector.t[1, 3] <- bayes_R2(outcome2.control.brm.fit.t)[1,1]
+R2_Vector[1, 1] <- "control"
+R2_Vector[1, 2] <- bayes_R2(agility2.control.brm.fit)[1,1]
+R2_Vector[1, 3] <- bayes_R2(outcome2.control.brm.fit.3way.t)[1,1]
 
-for (modelIndex in 1:2) {
+for (modelIndex in 2:2) {
   for (cultureIndex in 1:9) {
-    modelNameString <- paste(models[modelIndex], ".", glo_v[cultureIndex], ".brm.fit.t", sep ="")
+    modelNameString <- paste(models[modelIndex], ".", glo_v[cultureIndex], ".brm.fit.3way.t", sep ="")
     print(modelNameString)
     model <- eval(parse(text = modelNameString))
     Outcome <- bayes_R2(model)
     #plot(looOutcome)
     #ggsave(paste("./Plots/pp_check_psis_", modelNameString, ".png", sep = ""), width = 5, height = 5)
     
-    R2_Vector.t[cultureIndex + 1, 1] <- glo_v[cultureIndex]
-    R2_Vector.t[cultureIndex + 1, 1 + modelIndex] <- Outcome[1,1]
+    R2_Vector[cultureIndex + 1, 1] <- glo_v[cultureIndex]
+    R2_Vector[cultureIndex + 1, 1 + modelIndex] <- Outcome[1,1]
   }
 }
 
 
-
-
-R2_Vector.z <- data.frame(matrix(nrow = 10, ncol = 3))
-colnames(R2_Vector.z) <- c("model", "agility2.z", "outcome2.z")
-
-R2_Vector.z[1, 1] <- "control"
-R2_Vector.z[1, 2] <- bayes_R2(agility2.control.brm.fit)[1,1]
-R2_Vector.z[1, 3] <- bayes_R2(outcome2.control.brm.fit)[1,1]
-
-for (modelIndex in 1:2) {
-  for (cultureIndex in 1:9) {
-    modelNameString <- paste(models[modelIndex], ".", glo_v[cultureIndex], ".brm.fit", sep ="")
-    print(modelNameString)
-    model <- eval(parse(text = modelNameString))
-    Outcome <- bayes_R2(model)
-    #plot(looOutcome)
-    #ggsave(paste("./Plots/pp_check_psis_", modelNameString, ".png", sep = ""), width = 5, height = 5)
-    
-    R2_Vector.z[cultureIndex + 1, 1] <- glo_v[cultureIndex]
-    R2_Vector.z[cultureIndex + 1, 1 + modelIndex] <- Outcome[1,1]
+#Don't run this section of code
+{
+  
+  R2_Vector.z <- data.frame(matrix(nrow = 10, ncol = 3))
+  colnames(R2_Vector.z) <- c("model", "agility2.z", "outcome2.z")
+  
+  R2_Vector.z[1, 1] <- "control"
+  R2_Vector.z[1, 2] <- bayes_R2(agility2.control.brm.fit)[1,1]
+  R2_Vector.z[1, 3] <- bayes_R2(outcome2.control.brm.fit)[1,1]
+  
+  for (modelIndex in 1:2) {
+    for (cultureIndex in 1:9) {
+      modelNameString <- paste(models[modelIndex], ".", glo_v[cultureIndex], ".brm.fit", sep ="")
+      print(modelNameString)
+      model <- eval(parse(text = modelNameString))
+      Outcome <- bayes_R2(model)
+      #plot(looOutcome)
+      #ggsave(paste("./Plots/pp_check_psis_", modelNameString, ".png", sep = ""), width = 5, height = 5)
+      
+      R2_Vector.z[cultureIndex + 1, 1] <- glo_v[cultureIndex]
+      R2_Vector.z[cultureIndex + 1, 1 + modelIndex] <- Outcome[1,1]
+    }
   }
+  
+  
+  R2_Vector <- cbind(R2_Vector.z, R2_Vector.t[, 2:3])
 }
 
 
-R2_Vector <- cbind(R2_Vector.z, R2_Vector.t[, 2:3])
-print(xtable(R2_Vector, type = "latex", caption = "Bayes R2 Score"), file = "Bayes_r2.tex")
+print(xtable(R2_Vector, type = "latex", caption = "Bayes R2 Score - Three-way Interaction"), file = "Bayes_r2_3way.tex")
 
