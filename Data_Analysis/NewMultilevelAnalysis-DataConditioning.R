@@ -98,6 +98,18 @@ globalData <- subset(CultureData, network2x == 1)
   
   
   
+  stargazer(cor(CultureData[c("agility2","outcome2", "strategy", "competitive1", "network2x", "firmsizecont")], use = "na.or.complete"), 
+            type = "text", title = "Correlation Coefficients on Level 1 (Firm Level) Variables",
+            out = paste(filepath, "LatexTables/", "key_vars_set3.tex", sep=""))
+  
+  
+  stargazer(cor(CultureData[c("mfr2013", "guaiv", "gfuov", "gpdiv", "ginscolv", "ghumv", "gperv", "gigrcolv", "ggndv", "gassv")], use = "na.or.complete"), 
+            type = "text", title = "Correlation Coefficients on Level 2 (Country Level) Variables",
+            out = paste(filepath, "LatexTables/", "key_vars_set4.tex", sep=""))
+  
+  
+  
+  
 }
 
 

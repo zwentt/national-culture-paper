@@ -183,19 +183,28 @@ mcmcReg(list(outcome2.guaiv.brm.fit.3way.t,
         custom.model.names = c("UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
 
 
-
+conditional_effects(agility2.gperv.brm.fit.3way)
 
 
 #Post Analysis 
 
+conditional_effects(agility2.gperv.brm.fit.3way, effects = "competitive1cj:cul", conditions = data.frame(network2xcj = c(-0.5, 0.5)))
+
+ggsave(paste("./Plots/", "agility2.gperv.brm.fit.3way", ".png", sep = ""), width = 10, height = 6)
+
 conditional_effects(outcome2.ginscolv.brm.fit.3way.t, effects = "agility2cj:cul", conditions = data.frame(network2xcj = c(-0.5, 0.5)))
 
+ggsave(paste("./Plots/", "outcome2.ginscolv.brm.fit.3way.t", ".png", sep = ""), width = 10, height = 6)
 
-conditional_effects(agility2.ginscolv.brm.fit.3way, effects = "competitive1cj:cul", conditions = data.frame(network2xcj = c(-0.5, 0.5)))
 
+conditional_effects(outcome2.gperv.brm.fit.3way.t, effects = "agility2cj:cul", conditions = data.frame(network2xcj = c(-0.5, 0.5)))
 
-conditional_effects(agility2.ginscolv.brm.fit.3way)
-conditional_effects(agility2.guaiv.brm.fit.3way)
+ggsave(paste("./Plots/", "outcome2.gperv.brm.fit.3way.t", ".png", sep = ""), width = 10, height = 6)
+
+conditional_effects(outcome2.ggndv.brm.fit.3way.t, effects = "agility2cj:cul", conditions = data.frame(network2xcj = c(-0.5, 0.5)))
+
+ggsave(paste("./Plots/", "outcome2.ggndv.brm.fit.3way.t", ".png", sep = ""), width = 10, height = 6)
+
 
 
 
