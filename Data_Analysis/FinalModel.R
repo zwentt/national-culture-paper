@@ -97,6 +97,7 @@ for (i in 1:9) {
 }
 
 
+
 #Model Output using mcmcReg - 5% significance
 mcmcReg(list(outcome2.guaiv.brm.fit.3way,
              outcome2.gfuov.brm.fit.3way,
@@ -209,3 +210,66 @@ ggsave(paste("./Plots/", "outcome2.ggndv.brm.fit.3way.t", ".png", sep = ""), wid
 
 
 
+#Outcome3 Model
+
+rm(brm.outcome.fit.names)
+brm.outcome.fit.names <- "outcome3.control.brm.fit.3way.t"
+
+for (v in glo_v) {
+  brm.outcome.fit.names <- c(brm.outcome.fit.names, paste("outcome3.", v, ".brm.fit.3way.t", sep = ""))
+}
+
+#Fitting Control Variable Only Model
+outcome3.control.brm.fit.3way.t <- brm(outcome3 ~ mfr2013.z + firmsize.adj.cj + strategycj + (1 | countryx), 
+                                     data = CultureData, chains = 4, refresh = 0, cores = 8, 
+                                     family = "student",
+                                     file = "./brmfit/outcome3.control.brm.fit.t", file_refit = "on_change")
+
+brm.outcome3.model <- outcome3 ~ mfr2013.z + firmsize.adj.cj + strategycj + 
+  (agility2cj + network2xcj) * cul  + agility2cj:network2xcj:cul  + 
+  (1 + network2xcj + agility2cj + network2xcj:agility2cj | countryx)
+
+
+
+#model estimations 
+for (i in 1:9) {
+  brm.fit.file <- paste("./brmfit/", brm.outcome.fit.names[i+1], ".3way.t", sep = "")
+  
+  CultureData$cul <- as.numeric(unlist(CultureData[, c(glo_vz[i])]))
+  assign(brm.outcome.fit.names[i+1], brm(brm.outcome3.model, data = CultureData, cores = 8, chains = 4, 
+                                         iter = 3000, refresh = 0, control = list(adapt_delta = 0.99),
+                                         family = "student",
+                                         file = brm.fit.file, file_refit = "on_change"))
+  #Give R a break to cool down the CPU
+  Sys.sleep(10)
+}
+
+
+mcmcReg(list(outcome3.guaiv.brm.fit.3way.t,
+             outcome3.gfuov.brm.fit.3way.t,
+             outcome3.gpdiv.brm.fit.3way.t,
+             outcome3.ginscolv.brm.fit.3way.t,
+             outcome3.ghumv.brm.fit.3way.t,
+             outcome3.gperv.brm.fit.3way.t,
+             outcome3.gigrcolv.brm.fit.3way.t,
+             outcome3.ggndv.brm.fit.3way.t,
+             outcome3.gassv.brm.fit.3way.t),
+        pars = c("b", "sd","sigma"),
+        ci = 0.95, format = "latex", caption = "Outcome3 Models (T) alpha = .05 - Three-way with 2 Level Network",
+        file = paste(filepath, "LatexTables/", "outcome3FinalT205-3way", sep=""), 
+        custom.model.names = c("UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)
+
+
+mcmcReg(list(outcome3.guaiv.brm.fit.3way.t,
+             outcome3.gfuov.brm.fit.3way.t,
+             outcome3.gpdiv.brm.fit.3way.t,
+             outcome3.ginscolv.brm.fit.3way.t,
+             outcome3.ghumv.brm.fit.3way.t,
+             outcome3.gperv.brm.fit.3way.t,
+             outcome3.gigrcolv.brm.fit.3way.t,
+             outcome3.ggndv.brm.fit.3way.t,
+             outcome3.gassv.brm.fit.3way.t),
+        pars = c("b", "sd","sigma"),
+        ci = 0.90, format = "latex", caption = "Outcome3 Models (T) alpha = .10 - Three-way with 2 Level Network",
+        file = paste(filepath, "LatexTables/", "outcome3FinalT210-3way", sep=""), 
+        custom.model.names = c("UAI", "FUO", "PDI", "InsCol", "HUM", "PER", "IgrCol", "GND", "ASS"), regex = TRUE)

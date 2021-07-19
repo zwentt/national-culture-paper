@@ -32,6 +32,8 @@ glo_vz = c("guaiv.z", "gfuov.z", "gpdiv.z", "ginscolv.z", "ghumv.z", "gperv.z", 
 #Additional data conditioning
 #firmsize variable log transform then center within cluster
 
+CultureData$mfr2013ln <- log10(CultureData$mfr2013)
+
 CultureData$firmsize.adj <- log10(CultureData$firmsizecont)
 CultureData$firmsize.adj.cj <- CultureData$firmsize.adj - ave(CultureData$firmsize.adj, CultureData$country)
 CultureData$mfr2013lnstd <- (log10(CultureData$mfr2013) - mean(log10(CultureData$mfr2013)))/sd(log10(CultureData$mfr2013))
@@ -66,50 +68,26 @@ regionalData <- subset(CultureData, network2x == 0)
 globalData <- subset(CultureData, network2x == 1)
 
 
-{
   
-  #Correlation Coefficient Matrix 
-  stargazer(cor(eachCountry[glo_v]), type = "text", title = "Correlation Coefficients: GLOBE Value Dimensions",
-            out = paste(filepath, "LatexTables/", "globe_v_corr.tex", sep=""))
-  
-  stargazer(cor(eachCountry[glo_p]), type = "text", title = "Correlation Coefficients: GLOBE Practice Dimensions",
-            out = paste(filepath, "LatexTables/", "globe_p_corr.tex", sep=""))
-  
-  stargazer(cor(CultureData[c("agility2", "outcome2", "strategy", "competitive1", "network4xcj")], use = "na.or.complete"), 
-            type = "text", title = "Correlation Coefficients: Key Variables",
-            out = paste(filepath, "LatexTables/", "key_vars.tex", sep=""))
+  keyVars <- c("mfr2013ln", "firmsize.adj", "network2x", "competitive1", "strategy",
+               "gfuov", "guaiv", "gperv", "gpdiv", "gigrcolv", "ginscolv", "ghumv", "ggndv", "gassv",
+               "agility2", "outcome2"
+               )
   
   
-  # stargazer(cor(CultureData[c("sensing", "sensing2", "proactive", "proactive2", 
-  #                             "flexOutcome","flexOutcome2", "speedOutcome", "speedOutcome2")], 
-  #                             use = "na.or.complete"), 
-  #           type = "text", title = "Correlation Coefficients: Key Variables",
-  #           out = paste(filepath, "LatexTables/", "secondary_vars.tex", sep=""))
+  #Descriptive Statistics 
+  stargazer(as.data.frame(CultureData[keyVars]), 
+            type = "text", 
+            digits = 2, 
+            title = "Descriptive Statistics for Key Variables", 
+            out = paste(filepath, "LatexTables/", "keyVar_descriptive.html", sep=""))
   
+    
+  #Coefficient Matrix
+  stargazer(cor(CultureData[keyVars], use = "na.or.complete"),
+            type = "text", 
+            digits = 2,
+            title = "Correlation Matrix for Key Variables",
+            out = paste(filepath, "LatexTables/", "keyVar_corr.html", sep="")
+            )
   
-  stargazer(cor(CultureData[c("agility","outcome", "sensing", "proactive", "flexOutcome", "speedOutcome")], use = "na.or.complete"), 
-            type = "text", title = "Correlation Coefficients: Key Variables (Set1)",
-            out = paste(filepath, "LatexTables/", "key_vars_set1.tex", sep=""))
-  
-  stargazer(cor(CultureData[c("agility2","outcome2", "sensing2", "proactive2", "flexOutcome2", "speedOutcome2")], use = "na.or.complete"), 
-            type = "text", title = "Correlation Coefficients: Sub-dimensions of Key Variables",
-            out = paste(filepath, "LatexTables/", "key_vars_set2.tex", sep=""))
-  
-  
-  
-  
-  stargazer(cor(CultureData[c("agility2","outcome2", "strategy", "competitive1", "network2x", "firmsizecont")], use = "na.or.complete"), 
-            type = "text", title = "Correlation Coefficients on Level 1 (Firm Level) Variables",
-            out = paste(filepath, "LatexTables/", "key_vars_set3.tex", sep=""))
-  
-  
-  stargazer(cor(CultureData[c("mfr2013", "guaiv", "gfuov", "gpdiv", "ginscolv", "ghumv", "gperv", "gigrcolv", "ggndv", "gassv")], use = "na.or.complete"), 
-            type = "text", title = "Correlation Coefficients on Level 2 (Country Level) Variables",
-            out = paste(filepath, "LatexTables/", "key_vars_set4.tex", sep=""))
-  
-  
-  
-  
-}
-
-
