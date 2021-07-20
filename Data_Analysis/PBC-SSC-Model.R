@@ -16,7 +16,7 @@ agility2Model.sub <- agility2 ~ mfr2013.z + firmsize.adj.cj + strategycj + compe
 #Outcome Model 
 outcome2Model <- outcome2 ~ mfr2013.z + firmsize.adj.cj + strategycj + 
   agility2cj * (pbc + ssc) * network2xcj + 
-  (1 + agility2cj + network2xcj:agility2cj | countryx)
+  (1 + agility2cj + network2xcj + network2xcj:agility2cj | countryx)
 
 outcome2Model.sub <- outcome2 ~ mfr2013.z + firmsize.adj.cj + strategycj + 
   agility2cj * (pbc + ssc) + 
