@@ -74,12 +74,12 @@ for (v in glo_v) {
 #Fitting Control Variable Only Model
 outcome2.control.brm.fit.simplified <- brm(outcome2 ~ mfr2013.z + firmsize.adj.cj + strategycj + (1 | countryx), 
                                      data = CultureData, chains = 4, refresh = 0, cores = 8, 
-                                     file = "./brmfit/outcome2.control.brm.fit", file_refit = "on_change")
+                                     file = "./brmfit/outcome2.control.brm.fit.simplified", file_refit = "on_change")
 
 
 #Outcome Model
 brm.outcome2.model <- outcome2 ~ mfr2013.z + firmsize.adj.cj + strategycj + network2xcj +
-  agility2cj:cul + agility2cj:network2xcj:cul  +
+  agility2cj:cul + agility2cj:network2xcj:cul  + agility2cj + 
   (1 + agility2cj + network2xcj:agility2cj | countryx)
 
 

@@ -76,7 +76,7 @@ outcome2.control.brm.fit.simplified.global <- brm(outcome2 ~ mfr2013.z + firmsiz
 
 #Outcome Model
 brm.outcome2.model <- outcome2 ~ mfr2013.z + firmsize.adj.cj + strategycj + 
-  agility2cj:cul + 
+  agility2cj:cul + agility2cj + 
   (1 + agility2cj | countryx)
 
 

@@ -43,6 +43,13 @@ CultureData$strategycj <- CultureData$strategy - ave(CultureData$strategy, Cultu
 CultureData$network4xcj <- CultureData$g1 - ave(CultureData$g1, CultureData$country, FUN = function(x) mean(x, na.rm=T))
 
 
+#Societal Culture Dimensions 
+
+
+
+
+
+
 
 eachCountry <- subset(CultureData, pickone == 1)
 
@@ -70,7 +77,8 @@ globalData <- subset(CultureData, network2x == 1)
 
   
   keyVars <- c("mfr2013ln", "firmsize.adj", "network2x", "competitive1", "strategy",
-               "gfuov", "guaiv", "gperv", "gpdiv", "gigrcolv", "ginscolv", "ghumv", "ggndv", "gassv",
+               #"gfuov", "guaiv", "gperv", "gpdiv", "gigrcolv", "ginscolv", "ghumv", "ggndv", "gassv",
+               "pbc", "ssc",
                "agility2", "outcome2"
                )
   
@@ -78,7 +86,7 @@ globalData <- subset(CultureData, network2x == 1)
   #Descriptive Statistics 
   stargazer(as.data.frame(CultureData[keyVars]), 
             type = "text", 
-            digits = 2, 
+            digits = 3, 
             title = "Descriptive Statistics for Key Variables", 
             out = paste(filepath, "LatexTables/", "keyVar_descriptive.html", sep=""))
   
@@ -86,7 +94,7 @@ globalData <- subset(CultureData, network2x == 1)
   #Coefficient Matrix
   stargazer(cor(CultureData[keyVars], use = "na.or.complete"),
             type = "text", 
-            digits = 2,
+            digits = 3,
             title = "Correlation Matrix for Key Variables",
             out = paste(filepath, "LatexTables/", "keyVar_corr.html", sep="")
             )
